@@ -27,7 +27,7 @@ Refresher = new Class({
 		}).dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr').adopt(
-				new Element('td', {'text': l.name})
+				new Element('td', {'html': l.name})
 			);
 			tr.inject($$('#torrentTable tbody')[0]);
 		});
