@@ -22,9 +22,8 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-
-include_once("config.php");
-include_once("functions.php");
+include_once("inc/cfg/config.php");
+include_once("inc/functions.php");
 
 $messages = "";
 
@@ -270,7 +269,7 @@ if(!empty($torrent))
             }
             if ($cfg["cmd_options"])
             	$command .= " ".escapeshellarg($cfg["cmd_options"]);
-            
+
             $command .= " > /dev/null &";
 
             if ($cfg["AllowQueing"] && $queue == "1")
