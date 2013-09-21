@@ -33,13 +33,10 @@ loadSettings();
 if (!defined("IMG_JPG")) define("IMG_JPG", 2);
 
 
-if (in_array("gfx", $_REQUEST) && $_REQUEST["gfx"] == "gfx" && file_exists("images/code_bg.jpg"))
-{
+if (in_array("gfx", $_REQUEST) && $_REQUEST["gfx"] == "gfx" && file_exists("images/code_bg.jpg")){
     // Check gd is loaded AND that jpeg image type is supported:
-    if (extension_loaded('gd') && (imagetypes() & IMG_JPG))
-    {
+    if (extension_loaded('gd') && (imagetypes() & IMG_JPG)){
         $code = getCode($_REQUEST["rnd"]);
-
         $image = ImageCreateFromJPEG("images/code_bg.jpg");
         $text_color = ImageColorAllocate($image, 80, 80, 80);
 
@@ -48,16 +45,13 @@ if (in_array("gfx", $_REQUEST) && $_REQUEST["gfx"] == "gfx" && file_exists("imag
         ImageJPEG($image, '', 75);
         ImageDestroy($image);
         die();
-    }
-    else
-    {
+    } else {
         header("Content-type: application/octet-stream\n");
         header("Content-transfer-encoding: binary\n");
 
         $fp = popen("cat images/red.gif", "r");
         fpassthru($fp);
         pclose($fp);
-
         die();
     }
 }
@@ -66,8 +60,7 @@ session_name("TorrentFlux");
 session_start();
 include("themes/".$cfg["default_theme"]."/index.php");
 global $cfg;
-if(isset($_SESSION['user']))
-{
+if(isset($_SESSION['user'])){
     header("location: /");
     exit;
 }

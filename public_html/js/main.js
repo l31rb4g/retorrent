@@ -25,7 +25,7 @@ Refresher = new Class({
 	},
 	rebuildTable: function(r){
 		$$('#torrentTable tr.ttr').dispose();
-		Object.each(r, function(l){
+		Object.each(r.torrents, function(l){
 			var tr = new Element('tr', {
 				'class': 'ttr'
 			}).adopt(
@@ -187,6 +187,10 @@ Refresher = new Class({
 			}
 
 			tr.inject($$('#torrentTable .btr')[0], 'before');
+		});
+
+		Object.each(r.system, function(l, k){
+			$('lbl_' + k).set('html', l);
 		});
 	}
 });

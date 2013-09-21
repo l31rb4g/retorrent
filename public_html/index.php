@@ -683,8 +683,25 @@ if (isset($_GET['ajax'])){
 	die;
 }
 if (isset($_POST['ajax'])){
-	$json = getDirListAjax($cfg["torrent_file_path"]);
-	echo json_encode($json);
+	$torrents = getDirListAjax($cfg["torrent_file_path"]);
+	$system = array(
+		'current_download' => number_format($cfg["total_download"], 2),
+		'current_upload' => number_format($cfg["total_upload"], 2),
+		'free_space' => formatFreeSpace($cfg["free_space"])
+	);
+	if ($cfg["show_server_load"] && @isFile($cfg["loadavg_path"])) {
+		$loadavg_array = explode(" ", exec("cat ".escapeshellarg($cfg["loadavg_path"])));
+		$loadavg = $loadavg_array[2];
+		$system['server_load'] = "<strong>".$loadavg."</strong>";
+	} else {
+		$system['server_load'] = "<strong>n/a</strong>";
+	}
+
+	$r = array(
+		'torrents' => $torrents,
+		'system' => $system
+	);
+	echo json_encode($r);
 	die;
 }
 

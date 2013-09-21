@@ -226,29 +226,29 @@
 														<table>
 															<tr>
 																<td class="tiny" align="right"><?php echo _CURRENTDOWNLOAD ?>:</td>
-																<td class="tiny"><strong><?php echo number_format($cfg["total_download"], 2); ?></strong> kB/s</td>
+																<td class="tiny"><strong id="lbl_current_download"><?php echo number_format($cfg["total_download"], 2); ?></strong> kB/s</td>
 															</tr>
 															<tr>
 																<td class="tiny" align="right"><?php echo _CURRENTUPLOAD ?>:</td>
-																<td class="tiny"><strong><?php echo number_format($cfg["total_upload"], 2); ?></strong> kB/s</td>
+																<td class="tiny"><strong id="lbl_current_upload"><?php echo number_format($cfg["total_upload"], 2); ?></strong> kB/s</td>
 															</tr>
 															<tr>
 																<td class="tiny" align="right"><?php echo _FREESPACE ?>:</td>
-																<td class="tiny"><strong><?php echo formatFreeSpace($cfg["free_space"]) ?></strong></td>
+																<td class="tiny"><strong id="lbl_free_space"><?php echo formatFreeSpace($cfg["free_space"]) ?></strong></td>
 															</tr>
 															<tr>
 																<td class="tiny" align="right"><?php echo _SERVERLOAD ?>:</td>
-																<td class="tiny">
+																<td class="tiny"><strong id="lbl_server_load">
 																	<?php
 																	if ($cfg["show_server_load"] && @isFile($cfg["loadavg_path"])) {
 																		$loadavg_array = explode(" ", exec("cat ".escapeshellarg($cfg["loadavg_path"])));
 																		$loadavg = $loadavg_array[2];
-																		echo "<strong>".$loadavg."</strong>";
+																		echo $loadavg;
 																	} else {
-																		echo "<strong>n/a</strong>";
+																		echo "n/a";
 																	}
 																	?>
-																</td>
+																</strong></td>
 															</tr>
 														</table>
 													</td>
