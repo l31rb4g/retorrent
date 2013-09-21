@@ -81,7 +81,7 @@ Refresher = new Class({
 					new Element('div', {
 						'class': 'tiny',
 						'align': 'center',
-						'text': l.esttime
+						'html': l.esttime
 					})
 				),
 				new Element('td').adopt(
@@ -111,7 +111,19 @@ Refresher = new Class({
 			);
 
 			var tp = tr.getElement('.tpanel');
-			if (l.seed){
+			if (l['new']){
+				new Element('a', {
+					'href': '/?torrent=' + l.entry
+				}).adopt(
+					new Element('img', {
+						'src': '/images/run_on.gif',
+						'width': 16,
+						'height': 16,
+						'title': 'Start torrent',
+						'border': 0
+					})
+				).inject(tp);
+			} else if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
 				}).adopt(
