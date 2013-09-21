@@ -2979,6 +2979,7 @@ function getDirListAjax($dirName)
                                 {
                                     $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
 									$res[$i]['seed'] = 'on';
+									$res[$i]['delete'] = 'on';
                                 }
                             }
                         }
