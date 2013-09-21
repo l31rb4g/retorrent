@@ -27,7 +27,10 @@ Refresher = new Class({
 		}).dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr').adopt(
-				new Element('td', {'class': 'tiny'}).adopt(
+				new Element('td', {
+					'class': 'tiny',
+					'with': 420
+				}).adopt(
 					new Element('img', {
 						'src': '/images/' + l.image,
 						'width': 16,
