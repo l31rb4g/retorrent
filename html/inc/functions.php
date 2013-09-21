@@ -2808,6 +2808,7 @@ function getDirListAjax($dirName)
 		$res[$i]['title'] = $hd->title;
 		$res[$i]['name'] = $torrentfilelink.' '.$displayname;
 		$res[$i]['owner'] = $torrentowner;
+		$res[$i]['size'] = formatBytesToKBMGGB($af->size);
 
         if ($af->running == "2"){
             $_status = "<i><font color=\"#32cd32\">"._NEW."</font></i>";
