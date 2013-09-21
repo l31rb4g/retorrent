@@ -133,7 +133,7 @@ function showIndex()
         <td valign="top">
         <div align="center">
         <table cellpadding="5" cellspacing="0" border="0">
-        <form name="theForm" action="profile.php?op=updateProfile" method="post" onsubmit="return validateProfile()">
+        <form name="theForm" action="profile?op=updateProfile" method="post" onsubmit="return validateProfile()">
         <tr>
             <td align="right"><?php echo _USER ?>:</td>
             <td>
@@ -429,7 +429,7 @@ function addCookie( $newCookie )
         AddCookieInfo( $newCookie );
         AuditAction( $cfg["constants"]["admin"], "New Cookie: " . $newCookie["host"] . " | " . $newCookie["data"] );
     }
-    header( "location: profile.php?op=showCookies" );
+    header( "location: profile?op=showCookies" );
 }
 
 //****************************************************************************
@@ -441,7 +441,7 @@ function deleteCookie($cid)
     $cookie = getCookie( $cid );
     deleteCookieInfo( $cid );
     AuditAction( $cfg["constants"]["admin"], _DELETE . " Cookie: " . $cookie["host"] );
-    header( "location: profile.php?op=showCookies" );
+    header( "location: profile?op=showCookies" );
 }
 
 //****************************************************************************
@@ -452,7 +452,7 @@ function modCookie($cid,$newCookie)
     global $cfg;
     modCookieInfo($cid,$newCookie);
     AuditAction($cfg["constants"]["admin"], "Modified Cookie: ".$newCookie["host"]." | ".$newCookie["data"]);
-    header("location: profile.php?op=showCookies");
+    header("location: profile?op=showCookies");
 }
 
 //****************************************************************************
