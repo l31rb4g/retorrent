@@ -58,9 +58,6 @@ $cfg["pagetitle"] = "TorrentFluz";
 $cfg["version"] = "2.4";
 
 
-$cfg["enable_search"] = false;
-
-
 // CONSTANTS
 $cfg["constants"] = array();
 $cfg["constants"]["url_upload"] = "URL Upload";

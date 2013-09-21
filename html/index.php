@@ -760,27 +760,7 @@ if ($messages != "")
         </td>
         </form>
     </tr>
-<?php
-if ($cfg["enable_search"])
-{
-?>
-    <tr>
-        <form name="form_search" action="torrentSearch.php" method="get">
-        <td>
-        <hr>
-        Torrent <?php echo _SEARCH ?>:<br>
-        <input type="text" name="searchterm" size="30" maxlength="50">
-<?php
-        echo buildSearchEngineDDL($cfg["searchEngine"])
-?>
-        <input type="Submit" value="<?php echo _SEARCH ?>">
-        </td>
-        </form>
-    </tr>
-<?php
-}
-?>
-    </table>
+</table>
 
     </td>
     <td bgcolor="<?php echo $cfg["table_data_bg"] ?>" width="310" valign="top">
