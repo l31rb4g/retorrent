@@ -13,11 +13,23 @@ Refresher = new Class({
 				console.log('error');
 			},
 			'onSuccess': function(r){
-				console.log(r);
-			}
+				this.rebuildTable(r);
+			}.bind(this)
 		});
-		this.timer = setInterval(function(){
+		this.timer = setTimeout(function(){
 			this.request.send();
 		}.bind(this), 2000);
+	},
+	rebuildTable: function(r){
+		var last = ($$('#torrentTable tbody tr').length() - 1);
+		$$('#torrentTable tbody tr').filter(function(n,f){
+			return (n > 0 && n < last);
+		}).dispose();
+		Object.each(r, function(l){
+			var tr = new Element('tr').adopt(
+				new Element('td')
+			);
+			tr.inject($$('#torrentTable tbody')[0]);
+		});
 	}
 });

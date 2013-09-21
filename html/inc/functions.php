@@ -2638,7 +2638,7 @@ function getDirList($dirName)
     closedir($handle);
 
     // Now spit out the junk
-    echo "<table bgcolor=\"".$cfg["table_data_bg"]."\" width=\"100%\" bordercolor=\"".$cfg["table_border_dk"]."\" border=1 cellpadding=3 cellspacing=0>";
+    echo "<table id=\"torrentTable\" bgcolor=\"".$cfg["table_data_bg"]."\" width=\"100%\" bordercolor=\"".$cfg["table_border_dk"]."\" border=1 cellpadding=3 cellspacing=0>";
 
     if (sizeof($arUserTorrent) > 0)
     {
