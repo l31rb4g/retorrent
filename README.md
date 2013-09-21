@@ -1,4 +1,4 @@
-torrentfluz
+Torrentfluz
 ===========
 
 Torrentflux evolution
