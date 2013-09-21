@@ -23,7 +23,7 @@
 */
 
 
-require_once("metaInfo.php");
+require_once(INC.'/metaInfo.php');
 
 global $cfg;
 
