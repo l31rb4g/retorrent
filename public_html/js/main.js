@@ -121,7 +121,10 @@ Refresher = new Class({
                                                         new Request({
                                                             'url': '/?torrent=' + l.entry
                                                         }).send();
-                                                        this.setStyle('visibility', 'hidden');
+                                                        this.setStyles({
+                                                            'opacity': 0.5,
+                                                            'cursor': 'default'
+                                                        });
                                                     }
                                                 }
 					}).adopt(
@@ -163,7 +166,10 @@ Refresher = new Class({
                                                         new Request({
                                                             'url': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
                                                         }).send();
-                                                        this.setStyle('visibility', 'hidden');
+                                                        this.setStyles({
+                                                            'opacity': 0.5,
+                                                            'cursor': 'default'
+                                                        });
                                                     }
                                                 }
 				}).adopt(
