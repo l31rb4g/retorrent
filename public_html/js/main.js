@@ -121,6 +121,7 @@ Refresher = new Class({
                                                         new Request({
                                                             'url': '/?torrent=' + l.entry
                                                         }).send();
+                                                        this.setStyle('visibility', 'hidden');
                                                     }
                                                 }
 					}).adopt(
@@ -155,7 +156,16 @@ Refresher = new Class({
 				).inject(tp);
 			} else {
 				new Element('a', {
-					'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+					'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry,
+                                        'events': {
+                                                    'click': function(ev){
+                                                        ev.stop();
+                                                        new Request({
+                                                            'url': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+                                                        }).send();
+                                                        this.setStyle('visibility', 'hidden');
+                                                    }
+                                                }
 				}).adopt(
 					new Element('img', {
 						'src': '/images/kill.gif',
