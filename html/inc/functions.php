@@ -2807,6 +2807,7 @@ function getDirListAjax($dirName)
 //        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
 //        $output .= "<td valign=\"bottom\"><div align=\"center\">";
 
+		$res[$i]['entry'] = $entry;
 		$res[$i]['image'] = $hd->image;
 		$res[$i]['title'] = $hd->title.$entry;
 		$res[$i]['name'] = $torrentfilelink.' '.$displayname;

@@ -27,7 +27,18 @@ Refresher = new Class({
 		}).dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr').adopt(
-				new Element('td', {'html': l.name})
+				new Element('td', {'class': 'tiny'}).adopt(
+					new Element('img', {
+						'src': '/images/' + l.image,
+						'width': 16,
+						'height': 16,
+						'title': l.title,
+						'border': 0,
+						'align': 'absmiddle'
+					}),
+					new Element('a')
+				})
+
 			);
 			tr.inject($$('#torrentTable tbody')[0]);
 		});
