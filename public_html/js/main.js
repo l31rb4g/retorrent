@@ -109,6 +109,7 @@ Refresher = new Class({
 					)
 				)
 			);
+			tr.inject($$('#torrentTable .btr')[0], 'before');
 
 			var tp = tr.getElement('.tpanel')[0];
 			if (l.seed){
@@ -155,7 +156,6 @@ Refresher = new Class({
 					'border': 0
 				}).inject(tp);
 			}
-			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
 	}
 });
