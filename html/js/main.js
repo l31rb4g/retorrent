@@ -18,7 +18,10 @@ Refresher = new Class({
 					this.request.send();
 				}.bind(this), 1000);
 			}.bind(this)
-		}).send();
+		});
+		setTimeout(function(){
+			this.request.send();
+		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
 		var last = ($$('#torrentTable tbody > tr').length - 2);
