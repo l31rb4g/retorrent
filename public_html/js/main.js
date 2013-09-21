@@ -86,14 +86,15 @@ Refresher = new Class({
 				),
 				new Element('td').adopt(
 					new Element('div', {
-						'align': 'center'
+						'align': 'center',
+						'class': 'tpanel'
 					}).adopt(
 						new Element('a', {
 							'href': 'details.php?torrent=' + l.entry + '&als=false',
 							'events': {
 								'click': function(ev){
 									ev.stop();
-									StartTorrent('startpop.php?torrent=' + l.entry)
+									StartTorrent('startpop.php?torrent=' + l.entry);
 								}
 							}
 						}).adopt(
@@ -104,28 +105,50 @@ Refresher = new Class({
 								'title': 'Torrent Details - User: ' + l.owner,
 								'border': 0
 							})
-						),
-						new Element('a', {
-							'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
-						}).adopt(
-							new Element('img', {
-								'src': 'images/' + (l.seed ? 'seed_on' : 'kill') + '.gif',
-								'width': 16,
-								'height': 16,
-								'title': 'Stop Torrent',
-								'border': 0
-							})
-						),
-						new Element('img', {
-							'src': 'images/delete_' + (l['delete'] ? l['delete'] : 'off') + '.gif',
-							'width': 16,
-							'height': 16,
-							'border': 0
-						})
+						)
 					)
 				)
 			);
+			if (1){
+				var tp = tr.getElement('.tpanel')[0];
+
+
+			}
 			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
 	}
 });
+
+
+
+
+
+
+
+
+
+new Element('a', {
+	'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+}).adopt(
+	new Element('img', {
+		'src': 'images/' + (l.seed ? 'seed_on' : 'kill') + '.gif',
+		'width': 16,
+		'height': 16,
+		'title': 'Stop Torrent',
+		'border': 0
+	})
+),
+new Element('img', {
+	'src': 'images/delete_' + (l['delete'] ? l['delete'] : 'off') + '.gif',
+	'width': 16,
+	'height': 16,
+	'border': 0
+})
+
+
+
+
+
+
+
+
