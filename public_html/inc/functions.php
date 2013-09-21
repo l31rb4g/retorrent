@@ -1190,7 +1190,7 @@ function DisplayFoot($showReturn=true)
 <?php
     if ($showReturn)
     {
-        echo "[<a href=\"index.php\">"._RETURNTOTORRENTS."</a>]";
+        echo "[<a href=\"/\">"._RETURNTOTORRENTS."</a>]";
         echo "</form>";
     }
 ?>
@@ -2549,7 +2549,7 @@ function getDirList($dirName)
         {
             if($kill_id != "" && $af->percent_done >= 0 && $af->running == 1)
             {
-                $output .= "<a href=\"index.php?alias_file=".$alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry)."\"><img src=\"images/kill.gif\" width=16 height=16 title=\""._STOPDOWNLOAD."\" border=0></a>";
+                $output .= "<a href=\"/?alias_file=".$alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry)."\"><img src=\"images/kill.gif\" width=16 height=16 title=\""._STOPDOWNLOAD."\" border=0></a>";
                 $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 border=0>";
             }
             else
@@ -2562,7 +2562,7 @@ function getDirList($dirName)
                 {
                     if ($af->running == "3")
                     {
-                        $output .= "<a href=\"index.php?alias_file=".$alias."&dQueue=".$kill_id."&QEntry=".urlencode($entry)."\"><img src=\"images/queued.gif\" width=16 height=16 title=\""._DELQUEUE."\" border=0></a>";
+                        $output .= "<a href=\"/?alias_file=".$alias."&dQueue=".$kill_id."&QEntry=".urlencode($entry)."\"><img src=\"images/queued.gif\" width=16 height=16 title=\""._DELQUEUE."\" border=0></a>";
                     }
                     else
                     {
