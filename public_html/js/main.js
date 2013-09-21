@@ -109,9 +109,9 @@ Refresher = new Class({
 					)
 				)
 			);
-			tr.inject($$('#torrentTable .btr')[0], 'before');
-			var tp = tr.getElement('.tpanel')[0];
-			console.log(tp)
+
+			var tp = tr.getElement('.tpanel');
+			console.log(tp);
 			if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
@@ -157,6 +157,8 @@ Refresher = new Class({
 					'border': 0
 				}).inject(tp);
 			}
+
+			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
 	}
 });
