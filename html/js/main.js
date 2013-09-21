@@ -75,7 +75,7 @@ Refresher = new Class({
 				new Element('td'),
 				new Element('td')
 			);
-			tr.inject($$('#torrentTable tbody')[0]);
+			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
 	}
 });

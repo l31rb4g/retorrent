@@ -173,7 +173,7 @@
 						</tr>
 					</table>
 					<?php getDirList($cfg["torrent_file_path"]); ?>
-					<tr>
+					<tr class="btr">
 						<td bgcolor="<?php echo $cfg["table_header_bg"] ?>" colspan="6">
 							<table width="100%" border="0" cellpadding="0" cellspacing="0">
 								<tr>
