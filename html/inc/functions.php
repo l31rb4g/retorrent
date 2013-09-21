@@ -2738,7 +2738,7 @@ function getDirListAjax($dirName)
 
     // sort the files by date
     krsort($arList);
-
+	$i = 0;
     foreach($arList as $entry){
         $output = "";
         $displayname = $entry;
@@ -2807,13 +2807,14 @@ function getDirListAjax($dirName)
 //        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
 //        $output .= "<td valign=\"bottom\"><div align=\"center\">";
 
-		$res['image'] = $hd->image;
-		$res['title'] = $hd->title.$entry;
-		$res['name'] = $torrentfilelink.$displayname;
-		$res['owner'] = $torrentowner;
+		$res[$i]['image'] = $hd->image;
+		$res[$i]['title'] = $hd->title.$entry;
+		$res[$i]['name'] = $torrentfilelink.$displayname;
+		$res[$i]['owner'] = $torrentowner;
 
         if ($af->running == "2"){
             $output .= "<i><font color=\"#32cd32\">"._NEW."</font></i>";
+			$res[$i]['status'] = _NEW;
         }
         elseif ($af->running == "3" ){
             $estTime = "Waiting...";
@@ -3025,6 +3026,8 @@ function getDirListAjax($dirName)
         {
             array_push($arListTorrent, $output);
         }
+
+		$i++;
     }
     closedir($handle);
 

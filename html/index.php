@@ -657,13 +657,11 @@ $drivespace = getDriveSpace($cfg["path"]);
 
 ************************************************************/
 
-if (isset($_POST['ajax'])){
-	echo "{'ok':true}";
+if (isset($_GET['ajax'])){
+	$json = getDirListAjax($cfg["torrent_file_path"]);
+	pr($json);
 	die;
 }
 
-$json = getDirListAjax($cfg["torrent_file_path"]);
-pr($json);
-die;
 require_once(ROOT.'/templates/main.php');
 ?>
