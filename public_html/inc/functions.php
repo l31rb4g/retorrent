@@ -124,7 +124,7 @@ function Authenticate()
     if ($_SESSION['user'] == md5($cfg["pagetitle"]))
     {
         // user changed password and needs to login again
-        header('location: logout.php');
+        header('Location: /logout');
         exit();
     }
 
@@ -1274,7 +1274,7 @@ function DisplayTitleBar($pageTitleText, $showButtons=true)
             echo "&nbsp;<a href=\"/admin\"><img src=\"themes/".$cfg["theme"]."/images/admin.gif\" width=49 height=13 title=\""._ADMINISTRATION."\" border=0></a>";
         }
 
-        echo "&nbsp;<a href=\"logout.php\"><img src=\"images/logout.gif\" width=13 height=12 title=\"Logout\" border=0></a>";
+        echo "&nbsp;<a href=\"/logout\"><img src=\"images/logout.gif\" width=13 height=12 title=\"Logout\" border=0></a>";
     }
 ?>
             </td>
