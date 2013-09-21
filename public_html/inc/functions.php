@@ -1247,9 +1247,9 @@ function DisplayTitleBar($pageTitleText, $showButtons=true)
         echo "&nbsp;&nbsp;";
 
         echo "<a href=\"/\"><img src=\"themes/".$cfg["theme"]."/images/home.gif\" width=49 height=13 title=\""._TORRENTS."\" border=0></a>&nbsp;";
-        echo "<a href=\"dir.php\"><img src=\"themes/".$cfg["theme"]."/images/directory.gif\" width=49 height=13 title=\""._DIRECTORYLIST."\" border=0></a>&nbsp;";
-        echo "<a href=\"history.php\"><img src=\"themes/".$cfg["theme"]."/images/history.gif\" width=49 height=13 title=\""._UPLOADHISTORY."\" border=0></a>&nbsp;";
-        echo "<a href=\"profile.php\"><img src=\"themes/".$cfg["theme"]."/images/profile.gif\" width=49 height=13 title=\""._MYPROFILE."\" border=0></a>&nbsp;";
+        echo "<a href=\"dir\"><img src=\"themes/".$cfg["theme"]."/images/directory.gif\" width=49 height=13 title=\""._DIRECTORYLIST."\" border=0></a>&nbsp;";
+        echo "<a href=\"history\"><img src=\"themes/".$cfg["theme"]."/images/history.gif\" width=49 height=13 title=\""._UPLOADHISTORY."\" border=0></a>&nbsp;";
+        echo "<a href=\"profile\"><img src=\"themes/".$cfg["theme"]."/images/profile.gif\" width=49 height=13 title=\""._MYPROFILE."\" border=0></a>&nbsp;";
 
         // Does the user have messages?
         $sql = "select count(*) from tf_messages where to_user='".$cfg['user']."' and IsNew=1";
@@ -1267,7 +1267,7 @@ function DisplayTitleBar($pageTitleText, $showButtons=true)
             $message_image = "themes/".$cfg["theme"]."/images/messages_off.gif";
         }
 
-        echo "<a href=\"readmsg.php\"><img src=\"".$message_image."\" width=49 height=13 title=\""._MESSAGES."\" border=0></a>";
+        echo "<a href=\"readmsg\"><img src=\"".$message_image."\" width=49 height=13 title=\""._MESSAGES."\" border=0></a>";
 
         if(IsAdmin())
         {
