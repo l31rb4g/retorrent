@@ -20,7 +20,7 @@ Refresher = new Class({
 			}.bind(this)
 		});
 		setTimeout(function(){
-			this.request.send();
+			//this.request.send();
 		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
