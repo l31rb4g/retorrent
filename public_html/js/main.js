@@ -90,7 +90,7 @@ Refresher = new Class({
 						'class': 'tpanel'
 					}).adopt(
 						new Element('a', {
-							'href': 'details.php?torrent=' + l.entry + '&als=false',
+							'href': 'details?torrent=' + l.entry + '&als=false',
 							'events': {
 								'click': function(ev){
 									ev.stop();
