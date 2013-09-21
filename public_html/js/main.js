@@ -110,8 +110,8 @@ Refresher = new Class({
 				)
 			);
 			tr.inject($$('#torrentTable .btr')[0], 'before');
-			console.log(tp)
 			var tp = tr.getElement('.tpanel')[0];
+			console.log(tp)
 			if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
