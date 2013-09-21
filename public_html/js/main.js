@@ -109,9 +109,8 @@ Refresher = new Class({
 					)
 				)
 			);
-			console.log('ok 1')
 			tr.inject($$('#torrentTable .btr')[0], 'before');
-			console.log('ok 2')
+			console.log(tp)
 			var tp = tr.getElement('.tpanel')[0];
 			if (l.seed){
 				new Element('a', {
