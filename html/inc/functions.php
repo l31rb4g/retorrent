@@ -2931,8 +2931,9 @@ function getDirListAjax($dirName)
         {
             if($kill_id != "" && $af->percent_done >= 0 && $af->running == 1)
             {
-                $output .= "<a href=\"index.php?alias_file=".$alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry)."\"><img src=\"images/kill.gif\" width=16 height=16 title=\""._STOPDOWNLOAD."\" border=0></a>";
-                $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 border=0>";
+//                $output .= "<a href=\"index.php?alias_file=".$alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry)."\"><img src=\"images/kill.gif\" width=16 height=16 title=\""._STOPDOWNLOAD."\" border=0></a>";
+//                $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 border=0>";
+				$res[$i]['url_kill'] = $alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry);
             }
             else
             {

@@ -81,7 +81,40 @@ Refresher = new Class({
 						'text': l.esttime
 					})
 				),
-				new Element('td')
+				new Element('td').adopt(
+					new Element('div', {
+						'align': 'center'
+					}).adopt(
+						new Element('a', {
+							'href': 'details.php?torrent=' + l.entry + '&amp;als=false'
+						}).adopt(
+							new Element('img', {
+								'src': 'images/properties.png',
+								'width': 18,
+								'height': 13,
+								'title': 'Torrent Details - User: ' + l.owner,
+								'border': 0
+							})
+						),
+						new Element('a', {
+							'href': 'index.php?alias_file=' + 'rock_in_rio_2013_rob_zombie_720p_hdtv_x264_fhxhd_mkv_ms_.stat&amp;kill=2369&amp;kill_torrent=Rock.in.Rio.2013.ROB.ZOMBIE.720p.HDTV.x264_FHxHD.mkv_MS_.torrent'
+						}).adopt(
+							new Element('img', {
+								'src': 'images/kill.gif',
+								'width': 16,
+								'height': 16,
+								'title': 'Stop Torrent',
+								'border': 0
+							})
+						),
+						new Element('img', {
+							'src': 'images/delete_off.gif',
+							'width': 16,
+							'height': 16,
+							'border': 0
+						})
+					)
+				)
 			);
 			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
