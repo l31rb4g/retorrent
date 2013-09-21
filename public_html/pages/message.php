@@ -74,7 +74,7 @@ else
 
 ?>
 
-<form name="theForm" method="post" action="message.php">
+<form name="theForm" method="post" action="/message">
 <table border="0" cellpadding="3" cellspacing="2" width="100%">
 <tr>
     <td bgcolor="<?php echo $cfg["table_data_bg"] ?>" align="right"><font size=2 face=Arial><?php echo _TO ?>:</font></td>

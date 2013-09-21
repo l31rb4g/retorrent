@@ -62,7 +62,7 @@ function displayActivity($min=0)
         }
 
         $output .= "<tr>";
-        $output .= "<td><a href=\"message.php?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\"".$user_id."\" border=0 align=\"bottom\">".$user_id."</a>&nbsp;&nbsp;</td>";
+        $output .= "<td><a href=\"message?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\"".$user_id."\" border=0 align=\"bottom\">".$user_id."</a>&nbsp;&nbsp;</td>";
         $output .= "<td><div align=center><div class=\"tiny\" align=\"left\">";
         $output .= $file;
         $output .= "</div></td>";

@@ -372,7 +372,7 @@ function displayActivity($min=0, $user="", $srchFile="", $srchAction="")
         $output .= "<tr>";
         if (IsUser($user_id))
         {
-            $output .= "<td><a href=\"message.php?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\""._SENDMESSAGETO." ".$user_id."\" border=0 align=\"bottom\">".$user_id."</a>&nbsp;&nbsp;</td>";
+            $output .= "<td><a href=\"message?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\""._SENDMESSAGETO." ".$user_id."\" border=0 align=\"bottom\">".$user_id."</a>&nbsp;&nbsp;</td>";
         }
         else
         {
@@ -558,7 +558,7 @@ function displayUserSection()
         echo "<tr>";
         if (IsUser($user_id))
         {
-            echo "<td><a href=\"message.php?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\""._SENDMESSAGETO." ".$user_id."\" border=0 align=\"bottom\">".$user_id."</a></td>";
+            echo "<td><a href=\"message?to_user=".$user_id."\"><img src=\"".$user_icon."\" width=17 height=14 title=\""._SENDMESSAGETO." ".$user_id."\" border=0 align=\"bottom\">".$user_id."</a></td>";
         }
         else
         {

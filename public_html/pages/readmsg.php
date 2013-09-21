@@ -58,7 +58,7 @@ if (!empty($mid) && is_numeric($mid))
     echo _FROM.": <strong>".$from_user."</strong></td><td align=\"right\">";
     if (IsUser($from_user))
     {
-        echo "<a href=\"message.php?to_user=".$from_user."&rmid=".$mid."\"><img src=\"images/reply.gif\" width=16 height=16 title=\""._REPLY."\" border=0></a>";
+        echo "<a href=\"message?to_user=".$from_user."&rmid=".$mid."\"><img src=\"images/reply.gif\" width=16 height=16 title=\""._REPLY."\" border=0></a>";
     }
     echo "<a href=\"".$_SERVER['PHP_SELF']."?delete=".$mid."\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a></td></tr></table>";
     echo "</td></tr>";
@@ -116,7 +116,7 @@ else
             // No, let them reply or delete it
             if (IsUser($from_user))
             {
-                echo "<a href=\"message.php?to_user=".$from_user."&rmid=".$mid."\"><img src=\"images/reply.gif\" width=16 height=16 title=\""._REPLY."\" border=0></a>";
+                echo "<a href=\"message?to_user=".$from_user."&rmid=".$mid."\"><img src=\"images/reply.gif\" width=16 height=16 title=\""._REPLY."\" border=0></a>";
             }
             echo "<a href=\"".$_SERVER['PHP_SELF']."?delete=".$mid."\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a></td></tr>";
         }

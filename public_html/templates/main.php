@@ -108,7 +108,7 @@
 
 											for($inx = 0; $inx < count($arOnlineUsers); $inx++)
 											{
-												echo "<a href=\"message.php?to_user=".$arOnlineUsers[$inx]."\">";
+												echo "<a href=\"message?to_user=".$arOnlineUsers[$inx]."\">";
 												echo "<img src=\"images/user.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">". $arOnlineUsers[$inx];
 												echo "</a><br>\n";
 											}
@@ -121,7 +121,7 @@
 
 												for($inx = 0; $inx < count($arOfflineUsers); $inx++)
 												{
-													echo "<a href=\"message.php?to_user=".$arOfflineUsers[$inx]."\">";
+													echo "<a href=\"message?to_user=".$arOfflineUsers[$inx]."\">";
 													echo "<img src=\"images/user_offline.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">".$arOfflineUsers[$inx];
 													echo "</a><br>\n";
 												}
