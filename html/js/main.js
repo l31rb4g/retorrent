@@ -10,9 +10,12 @@ Refresher = new Class({
 			'data': {
 				'ajax': '1'
 			},
-			'onSuccess': function(ev){
-
+			'onSuccess': function(r){
+				console.log(r);
 			}
 		});
+		this.timer = setInterval(function(){
+			this.request.send();
+		}.bind(this), 2000);
 	}
 });
