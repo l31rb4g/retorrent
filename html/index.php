@@ -21,11 +21,11 @@
     along with TorrentFlux; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 include_once(ROOT.'/inc/cfg/config.php');
-die(ROOT);
-include_once("inc/functions.php");
+include_once(ROOT.'/inc/functions.php');
 
 $messages = "";
 
