@@ -137,8 +137,8 @@ Refresher = new Class({
 					})
 				).inject(tp);
 			}
-			console.log('ok 3')
-			if (l['delete']){
+
+			if (l['delete'] && l['delete'] == 'on'){
 				new Element('a', {
 					'href': '/?alias_file=' + l.alias + '&delfile=' + l.entry
 				}).adopt(
