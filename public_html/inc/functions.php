@@ -2943,28 +2943,22 @@ function getDirListAjax($dirName)
             }
             else
             {
-                if($torrentowner == "n/a")
-                {
+                if($torrentowner == "n/a"){
 //                    $output .= "<img src=\"images/run_off.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
 					$res[$i]['run'] = 'off';
-                }
-                else
-                {
-                    if ($af->running == "3")
-                    {
+                } else {
+                    if ($af->running == "3"){
 //                        $output .= "<a href=\"index.php?alias_file=".$alias."&dQueue=".$kill_id."&QEntry=".urlencode($entry)."\"><img src=\"images/queued.gif\" width=16 height=16 title=\""._DELQUEUE."\" border=0></a>";
-                    }
-                    else
-                    {
-                        if (!is_file($cfg["torrent_file_path"].$alias.".pid"))
-                        {
+						//$res[$i]['run'] = 'off';
+                    } else {
+                        if (!is_file($cfg["torrent_file_path"].$alias.".pid")){
                             // Allow Avanced start popup?
                             if ($cfg["advanced_start"])
                             {
                                 if($show_run)
                                 {
 //                                    $output .= "<a href=\"#\" onclick=\"StartTorrent('startpop.php?torrent=".urlencode($entry)."')\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
-									$res[$i]['run'] = 'advanced';
+									$res[$i]['run'] = 'on';
                                 }
                                 else
                                 {
