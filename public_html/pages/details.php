@@ -23,8 +23,6 @@
 */
 
 
-include_once("config.php");
-include_once("functions.php");
 require_once("metaInfo.php");
 
 global $cfg;
