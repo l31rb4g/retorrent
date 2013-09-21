@@ -109,10 +109,33 @@ Refresher = new Class({
 					)
 				)
 			);
-			if (1){
-				var tp = tr.getElement('.tpanel')[0];
 
+			var tp = tr.getElement('.tpanel')[0];
 
+			if (l.seed){
+				new Element('a', {
+					'href': '/?torrent=' + l.entry
+				}).adopt(
+					new Element('img', {
+						'src': '/images/seed_' + l.seed + '.gif',
+						'width': 16,
+						'height': 16,
+						'title': 'Seed torrent',
+						'border': 0
+					})
+				).inject(tp);
+			} else if (l.kill){
+				new Element('a', {
+					'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+				}).adopt(
+					new Element('img', {
+						'src': '/images/kill_' + l.kill + '.gif',
+						'width': 16,
+						'height': 16,
+						'title': 'Stop torrent',
+						'border': 0
+					})
+				).inject(tp);
 			}
 			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
@@ -127,17 +150,7 @@ Refresher = new Class({
 
 
 
-new Element('a', {
-	'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
-}).adopt(
-	new Element('img', {
-		'src': 'images/' + (l.seed ? 'seed_on' : 'kill') + '.gif',
-		'width': 16,
-		'height': 16,
-		'title': 'Stop Torrent',
-		'border': 0
-	})
-),
+
 new Element('img', {
 	'src': 'images/delete_' + (l['delete'] ? l['delete'] : 'off') + '.gif',
 	'width': 16,
