@@ -2754,7 +2754,7 @@ function getDirListAjax($dirName)
 
         if(strlen($entry) >= 47){
             // needs to be trimmed
-            $displayname = substr($entry, 0, 44);
+            $displayname = substr($entry, 0, 64);
             $displayname .= "...";
         }
 
