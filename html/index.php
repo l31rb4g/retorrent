@@ -703,6 +703,7 @@ function ConfirmDelete(file)
     return confirm("<?php echo _ABOUTTODELETE ?>: " + file)
 }
 </script>
+	<script type="text/javascript" scr="/js/mootools-core-1.4.5-full-nocompat-yc.js"></script>
 </head>
 
 <body onLoad="UpdateRefresh();" topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
