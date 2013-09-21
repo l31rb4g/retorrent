@@ -2889,6 +2889,7 @@ function getDirListAjax($dirName)
                 $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=\"#989898\">"._INCOMPLETE."</font></i></a>";
                 $show_run = true;
 				$res[$i]['run'] = 'on';
+				$res[$i]['delete'] = 'on';
             } else {
                 $popup_msg .= $timeStarted;
                 if ($af->percent_done > 1) {
