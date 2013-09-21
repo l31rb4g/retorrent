@@ -52,6 +52,10 @@ $cfg["db_pass"] = "eanni4";            // password for database
 // ***************************************************************************
 // ***************************************************************************
 
+
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+
 $cfg["pagetitle"] = "TorrentFluz";
 
 // TorrentFlux Version

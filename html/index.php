@@ -22,9 +22,7 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
-
-include_once(ROOT.'/inc/cfg/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/inc/cfg/config.php');
 include_once(ROOT.'/inc/functions.php');
 
 $messages = '';
