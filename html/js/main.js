@@ -21,13 +21,13 @@ Refresher = new Class({
 		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
-		var last = ($$('#torrentTable tbody tr').length - 1);
-		$$('#torrentTable tbody tr').filter(function(n,f){
+		var last = ($$('#torrentTable tbody > tr').length - 1);
+		$$('#torrentTable tbody > tr').filter(function(f,n){
 			return (n > 0 && n < last);
 		}).dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr').adopt(
-				new Element('td')
+				new Element('td', {'text': l.name})
 			);
 			tr.inject($$('#torrentTable tbody')[0]);
 		});
