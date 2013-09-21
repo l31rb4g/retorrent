@@ -24,7 +24,9 @@ Refresher = new Class({
 		var last = ($$('#torrentTable tbody > tr').length - 2);
 		$$('#torrentTable tr.ttr').dispose();
 		Object.each(r, function(l){
-			var tr = new Element('tr').adopt(
+			var tr = new Element('tr', {
+				'class': 'ttr'
+			}).adopt(
 				new Element('td', {
 					'class': 'tiny',
 					'with': 420
