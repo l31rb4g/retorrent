@@ -2809,7 +2809,7 @@ function getDirListAjax($dirName)
 
 		$res[$i]['image'] = $hd->image;
 		$res[$i]['title'] = $hd->title.$entry;
-		$res[$i]['name'] = $torrentfilelink.$displayname;
+		$res[$i]['name'] = $torrentfilelink.' '.$displayname;
 		$res[$i]['owner'] = $torrentowner;
 
         if ($af->running == "2"){
