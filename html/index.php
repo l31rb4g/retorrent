@@ -656,7 +656,7 @@ $drivespace = getDriveSpace($cfg["path"]);
 ************************************************************/
 
 if (isset($_POST['ajax'])){
-	echo 'ok';
+	echo "{'ok':true}";
 	die;
 }
 
@@ -711,6 +711,7 @@ function ConfirmDelete(file)
 }
 </script>
 	<script type="text/javascript" scr="/js/mootools-core-1.4.5-full-nocompat-yc.js"></script>
+	<script type="text/javascript" scr="/js/main.js"></script>
 </head>
 
 <body onLoad="UpdateRefresh();" topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
