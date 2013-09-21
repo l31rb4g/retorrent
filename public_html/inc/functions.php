@@ -2752,9 +2752,9 @@ function getDirListAjax($dirName)
             $af->WriteFile();
         }
 
-        if(strlen($entry) >= 67){
+        if(strlen($entry) >= 70){
             // needs to be trimmed
-            $displayname = substr($entry, 0, 64);
+            $displayname = substr($entry, 0, 67);
             $displayname .= "...";
         }
 
