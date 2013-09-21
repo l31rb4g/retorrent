@@ -109,8 +109,9 @@ Refresher = new Class({
 					)
 				)
 			);
+			console.log('ok 1')
 			tr.inject($$('#torrentTable .btr')[0], 'before');
-
+			console.log('ok 2')
 			var tp = tr.getElement('.tpanel')[0];
 			if (l.seed){
 				new Element('a', {
@@ -137,6 +138,7 @@ Refresher = new Class({
 					})
 				).inject(tp);
 			}
+			console.log('ok 3')
 			if (l['delete']){
 				new Element('a', {
 					'href': '/?alias_file=' + l.alias + '&delfile=' + l.entry
