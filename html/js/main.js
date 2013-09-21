@@ -22,9 +22,7 @@ Refresher = new Class({
 	},
 	rebuildTable: function(r){
 		var last = ($$('#torrentTable tbody > tr').length - 2);
-		$$('#torrentTable tbody > tr').filter(function(f,n){
-			return (n > 0 && n < last);
-		}).dispose();
+		$$('#torrentTable tr.ttr').dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr').adopt(
 				new Element('td', {
