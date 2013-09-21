@@ -58,23 +58,23 @@
 							<td bgcolor="<?php echo $cfg["table_header_bg"] ?>">
 								<table width="100%" cellpadding="3" cellspacing="0" border="0">
 									<tr>
-										<form name="form_file" action="index.php" method="post" enctype="multipart/form-data">
 										<td>
-										<?php echo _SELECTFILE ?>:<br>
-										<input type="File" name="upload_file" size="40">
-										<input type="Submit" value="<?php echo _UPLOAD ?>">
+											<form name="form_file" action="index.php" method="post" enctype="multipart/form-data">
+												<?php echo _SELECTFILE ?>:<br>
+												<input type="File" name="upload_file" size="40">
+												<input type="Submit" value="<?php echo _UPLOAD ?>">
+											</form>
 										</td>
-										</form>
 									</tr>
 									<tr>
-										<form name="form_url" action="index.php" method="post">
 										<td>
-										<hr>
-										<?php echo _URLFILE ?>:<br>
-										<input type="text" name="url_upload" size="50">
-										<input type="Submit" value="<?php echo _GETFILE ?>">
+											<form name="form_url" action="index.php" method="post">
+												<hr>
+												<?php echo _URLFILE ?>:<br>
+												<input type="text" name="url_upload" size="50">
+												<input type="Submit" value="<?php echo _GETFILE ?>">
+											</form>
 										</td>
-										</form>
 									</tr>
 								</table>
 							</td>

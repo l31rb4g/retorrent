@@ -662,5 +662,5 @@ if (isset($_POST['ajax'])){
 	die;
 }
 
-include(ROOT.'/templates/main.php');
+require_once(ROOT.'/templates/main.php');
 ?>
