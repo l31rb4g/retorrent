@@ -722,7 +722,7 @@ if ($messages != "")
 <?php
 }
 ?>
-<table border="0" cellpadding="0" cellspacing="0" width="760">
+<table border="0" cellpadding="0" cellspacing="0" width="960">
 <tr>
     <td>
 <table border="1" bordercolor="<?php echo $cfg["table_border_dk"] ?>" cellpadding="4" cellspacing="0" width="100%">
