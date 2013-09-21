@@ -1294,7 +1294,7 @@ function DisplayMessageList()
 
     echo '<div align="center">'.
     '<table border="0" cellpadding="0" cellspacing="0">'.
-    '<form name="formMessage" action="message.php" method="post">'.
+    '<form name="formMessage" action="message" method="post">'.
     '<tr><td>' . _SENDMESSAGETO ;
 
     echo '<select name="to_user">';
@@ -2413,7 +2413,7 @@ function getDirList($dirName)
 
         $output .= "<tr class=\"ttr\"><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.' '.$displayname."</td>";
         $output .= "<td align=\"right\"><font class=\"tiny\">".formatBytesToKBMGGB($af->size)."</font></td>";
-        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
+        $output .= "<td align=\"center\"><a href=\"message?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
         $output .= "<td valign=\"bottom\"><div align=\"center\">";
 
         if ($af->running == "2")
@@ -2795,11 +2795,6 @@ function getDirListAjax($dirName)
 
         $hd = getStatusImage($af);
 
-//        $output .= "<tr><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.$displayname."</td>";
-//        $output .= "<td align=\"right\"><font class=\"tiny\">".formatBytesToKBMGGB($af->size)."</font></td>";
-//        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
-//        $output .= "<td valign=\"bottom\"><div align=\"center\">";
-
 		$res[$i]['entry'] = $entry;
 		$res[$i]['image'] = $hd->image;
 		$res[$i]['title'] = $hd->title;
@@ -2910,10 +2905,6 @@ function getDirListAjax($dirName)
 
         }
 
-//        $output .= "</div></td>";
-//        $output .= "<td><div class=\"tiny\" align=\"center\">".$estTime."</div></td>";
-//        $output .= "<td><div align=center>";
-
 		$res[$i]['esttime'] = $estTime;
 
         $torrentDetails = _TORRENTDETAILS;
@@ -2922,12 +2913,12 @@ function getDirListAjax($dirName)
             $torrentDetails .= "\n"._USER.": ".$lastUser;
         }
 
-        $output .= "<a href=\"details.php?torrent=".urlencode($entry);
+//        $output .= "<a href=\"details.php?torrent=".urlencode($entry);
         if($af->running == 1)
         {
-            $output .= "&als=false";
+//            $output .= "&als=false";
         }
-        $output .= "\"><img src=\"images/properties.png\" width=18 height=13 title=\"".$torrentDetails."\" border=0></a>";
+//        $output .= "\"><img src=\"images/properties.png\" width=18 height=13 title=\"".$torrentDetails."\" border=0></a>";
 
         if ($owner || IsAdmin($cfg["user"]))
         {
@@ -2962,18 +2953,16 @@ function getDirListAjax($dirName)
                             } else {
                                 // Quick Start
                                 if($show_run){
-                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
+//                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
                                 } else {
-                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
-									$res[$i]['seed'] = 'on';
-									$res[$i]['delete'] = 'on';
+//                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
                                 }
                             }
                         }
                         else
                         {
                             // pid file exists so this may still be running or dieing.
-                            $output .= "<img src=\"images/run_off.gif\" width=16 height=16 border=0 title=\""._STOPPING."\">";
+//                            $output .= "<img src=\"images/run_off.gif\" width=16 height=16 border=0 title=\""._STOPPING."\">";
 							$res[$i]['run'] = 'off';
                         }
                     }
@@ -2982,12 +2971,14 @@ function getDirListAjax($dirName)
                 if (!is_file($cfg["torrent_file_path"].$alias.".pid"))
                 {
                     $deletelink = $_SERVER['PHP_SELF']."?alias_file=".$alias."&delfile=".urlencode($entry);
-                    $output .= "<a href=\"".$deletelink."\" onclick=\"return ConfirmDelete('".$entry."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
+//                    $output .= "<a href=\"".$deletelink."\" onclick=\"return ConfirmDelete('".$entry."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
+					$res[$i]['delete'] = 'on';
                 }
                 else
                 {
                     // pid file present so process may be still running. don't allow deletion.
-                    $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 title=\""._STOPPING."\" border=0>";
+//                    $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 title=\""._STOPPING."\" border=0>";
+					$res[$i]['delete'] = 'off';
                 }
             }
         }
@@ -2995,10 +2986,8 @@ function getDirListAjax($dirName)
         {
 //            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
 //            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
+			$res[$i]['locked'] = true;
         }
-//        $output .= "</div>";
-//        $output .= "</td>";
-//        $output .= "</tr>\n";
 
         // Is this torrent for the user list or the general list?
         if ($cfg["user"] == getOwner($entry))

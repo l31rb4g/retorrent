@@ -18,6 +18,9 @@
 		var ol_cap = "&nbsp;Torrent Status";
 	</script>
 	<script src="/js/overlib.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		_ABOUTTODELETE = '<?php echo _ABOUTTODELETE ?>';
+	</script>
 </head>
 <body topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
 	<div id="overDiv" style="position:absolute;visibility:hidden;z-index:1000;"></div>

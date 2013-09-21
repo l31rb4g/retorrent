@@ -16,7 +16,7 @@ Refresher = new Class({
 				this.rebuildTable(r);
 				setTimeout(function(){
 					this.request.send();
-				}.bind(this), 2000);
+				}.bind(this), 1000);
 			}.bind(this)
 		});
 		setTimeout(function(){
@@ -161,7 +161,14 @@ Refresher = new Class({
 
 			if (l['delete'] && l['delete'] == 'on'){
 				new Element('a', {
-					'href': '/?alias_file=' + l.alias + '&delfile=' + l.entry
+					'href': '/?alias_file=' + l.alias + '&delfile=' + l.entry,
+					'events': {
+						'click': function(ev){
+							if (!ConfirmDelete(l.entry)){
+								ev.stop();
+							}
+						}
+					}
 				}).adopt(
 					new Element('img', {
 						'src': '/images/delete_on.gif',
@@ -209,5 +216,5 @@ function StartTorrent(name_file){
 	myWindow = window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=700,height=530');
 }
 function ConfirmDelete(file){
-	return confirm("<?php echo _ABOUTTODELETE ?>: " + file);
+	return confirm(_ABOUTTODELETE + ": " + file);
 }
