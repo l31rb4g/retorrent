@@ -74,7 +74,13 @@ Refresher = new Class({
 				new Element('td', {
 					'html': l.status
 				}),
-				new Element('td'),
+				new Element('td').adopt(
+					new Element('div', {
+						'class': 'tiny',
+						'align': 'center',
+						'text': l.esttime
+					})
+				),
 				new Element('td')
 			);
 			tr.inject($$('#torrentTable .btr')[0], 'before');
