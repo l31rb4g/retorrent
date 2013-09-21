@@ -16,7 +16,7 @@ Refresher = new Class({
 				this.rebuildTable(r);
 				setTimeout(function(){
 					this.request.send();
-				}.bind(this), 500);
+				}.bind(this), 0);
 			}.bind(this)
 		});
 		setTimeout(function(){
@@ -24,7 +24,6 @@ Refresher = new Class({
 		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
-		var last = ($$('#torrentTable tbody > tr').length - 2);
 		$$('#torrentTable tr.ttr').dispose();
 		Object.each(r, function(l){
 			var tr = new Element('tr', {
