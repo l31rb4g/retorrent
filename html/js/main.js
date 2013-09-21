@@ -89,7 +89,13 @@ Refresher = new Class({
 						'align': 'center'
 					}).adopt(
 						new Element('a', {
-							'href': 'details.php?torrent=' + l.entry + '&als=false'
+							'href': 'details.php?torrent=' + l.entry + '&als=false',
+							'events': {
+								'click': function(ev){
+									ev.stop();
+									StartTorrent('startpop.php?torrent=' + l.entry)
+								}
+							}
 						}).adopt(
 							new Element('img', {
 								'src': 'images/properties.png',
