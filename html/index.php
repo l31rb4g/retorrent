@@ -667,197 +667,178 @@ if (isset($_POST['ajax'])){
     <title><?php echo $cfg["pagetitle"] ?></title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <LINK REL="StyleSheet" HREF="themes/<?php echo $cfg["theme"] ?>/style.css" TYPE="text/css">
-    <META HTTP-EQUIV="Pragma" CONTENT="no-cache" charset="<?php echo _CHARSET ?>">
-<?php
-    if(!isset($_SESSION['prefresh']) || ($_SESSION['prefresh'] == true))
-    {
-        echo "<meta http-equiv=\"REFRESH\" content=\"".$cfg["page_refresh"].";URL=index.php\">";
-?>
-<script language="JavaScript">
-    var var_refresh = <?php echo $cfg["page_refresh"] ?>;
-    function UpdateRefresh() {
-        span_refresh.innerHTML = String(var_refresh--);
-        setTimeout("UpdateRefresh();", 1000);
-    }
-</script>
-<?php
-    }
-?>
-<div id="overDiv" style="position:absolute;visibility:hidden;z-index:1000;"></div>
-<script language="JavaScript">
-    var ol_closeclick = "1";
-    var ol_close = "<font color=#ffffff><b>X</b></font>";
-    var ol_fgclass = "fg";
-    var ol_bgclass = "bg";
-    var ol_captionfontclass = "overCaption";
-    var ol_closefontclass = "overClose";
-    var ol_textfontclass = "overBody";
-    var ol_cap = "&nbsp;Torrent Status";
-</script>
-<script src="overlib.js" type="text/javascript"></script>
-<script language="JavaScript">
-function ShowDetails(name_file)
-{
-  window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=430,height=225')
-}
-function StartTorrent(name_file)
-{
-    myWindow = window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=700,height=530')
-}
-function ConfirmDelete(file)
-{
-    return confirm("<?php echo _ABOUTTODELETE ?>: " + file)
-}
-</script>
+    <link rel="stylesheet" type="text/css" href="themes/<?php echo $cfg["theme"] ?>/style.css" />
+    <meta http-equiv="pragma" content="no-cache" charset="<?php echo _CHARSET ?>" />
 	<script type="text/javascript" scr="/js/mootools-core-1.4.5-full-nocompat-yc.js"></script>
 	<script type="text/javascript" scr="/js/main.js"></script>
+	<script language="javascript">
+		var ol_closeclick = "1";
+		var ol_close = "<font color=#ffffff><b>X</b></font>";
+		var ol_fgclass = "fg";
+		var ol_bgclass = "bg";
+		var ol_captionfontclass = "overCaption";
+		var ol_closefontclass = "overClose";
+		var ol_textfontclass = "overBody";
+		var ol_cap = "&nbsp;Torrent Status";
+	</script>
+	<script src="/js/overlib.js" type="text/javascript"></script>
+	<script language="javascript">
+		function ShowDetails(name_file){
+		  window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=430,height=225');
+		}
+		function StartTorrent(name_file){
+			myWindow = window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=700,height=530');
+		}
+		function ConfirmDelete(file){
+			return confirm("<?php echo _ABOUTTODELETE ?>: " + file);
+		}
+	</script>
 </head>
 
 <body onLoad="UpdateRefresh();" topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
-
-<div align="center">
+	<div id="overDiv" style="position:absolute;visibility:hidden;z-index:1000;"></div>
+	<div align="center">
 
 <?php
 if ($messages != "")
 {
 ?>
-<table border="1" cellpadding="10" bgcolor="#ff9b9b">
-<tr>
-    <td><div align="center"><?php echo $messages ?></div></td>
-</tr>
-</table><br><br>
+	<table border="1" cellpadding="10" bgcolor="#ff9b9b">
+		<tr>
+			<td><div align="center"><?php echo $messages ?></div></td>
+		</tr>
+	</table>
+	<br><br>
 <?php
 }
 ?>
-<table border="0" cellpadding="0" cellspacing="0" width="960">
-<tr>
-    <td>
-<table border="1" bordercolor="<?php echo $cfg["table_border_dk"] ?>" cellpadding="4" cellspacing="0" width="100%">
-<tr>
-    <td colspan="2" background="themes/<?php echo $cfg["theme"] ?>/images/bar.gif">
-    <?php DisplayTitleBar($cfg["pagetitle"]); ?>
-    </td>
-</tr>
-<tr>
-    <td bgcolor="<?php echo $cfg["table_header_bg"] ?>">
-    <table width="100%" cellpadding="3" cellspacing="0" border="0">
-    <tr>
-        <form name="form_file" action="index.php" method="post" enctype="multipart/form-data">
-        <td>
-        <?php echo _SELECTFILE ?>:<br>
-        <input type="File" name="upload_file" size="40">
-        <input type="Submit" value="<?php echo _UPLOAD ?>">
-        </td>
-        </form>
-    </tr>
-    <tr>
-        <form name="form_url" action="index.php" method="post">
-        <td>
-        <hr>
-        <?php echo _URLFILE ?>:<br>
-        <input type="text" name="url_upload" size="50">
-        <input type="Submit" value="<?php echo _GETFILE ?>">
-        </td>
-        </form>
-    </tr>
-</table>
+	<table border="0" cellpadding="0" cellspacing="0" width="960">
+	<tr>
+		<td>
+	<table border="1" bordercolor="<?php echo $cfg["table_border_dk"] ?>" cellpadding="4" cellspacing="0" width="100%">
+	<tr>
+		<td colspan="2" background="themes/<?php echo $cfg["theme"] ?>/images/bar.gif">
+		<?php DisplayTitleBar($cfg["pagetitle"]); ?>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="<?php echo $cfg["table_header_bg"] ?>">
+			<table width="100%" cellpadding="3" cellspacing="0" border="0">
+				<tr>
+					<form name="form_file" action="index.php" method="post" enctype="multipart/form-data">
+					<td>
+					<?php echo _SELECTFILE ?>:<br>
+					<input type="File" name="upload_file" size="40">
+					<input type="Submit" value="<?php echo _UPLOAD ?>">
+					</td>
+					</form>
+				</tr>
+				<tr>
+					<form name="form_url" action="index.php" method="post">
+					<td>
+					<hr>
+					<?php echo _URLFILE ?>:<br>
+					<input type="text" name="url_upload" size="50">
+					<input type="Submit" value="<?php echo _GETFILE ?>">
+					</td>
+					</form>
+				</tr>
+			</table>
+		</td>
+		<td bgcolor="<?php echo $cfg["table_data_bg"] ?>" width="310" valign="top">
+			<table width="100%" cellpadding="1" border="0">
+			<tr>
+			<td valign="top">
+			<b><?php echo _TORRENTLINKS ?>:</b><br>
+			<?php
+			$arLinks = GetLinks();
+			if (is_array($arLinks))
+			{
+				foreach($arLinks as $link)
+				{
+					echo "<a href=\"".$link['url']."\" target=\"_blank\"><img src=\"images/arrow.gif\" width=9 height=9 title=\"".$link['url']."\" border=0 align=\"baseline\">".$link['sitename']."</a><br>\n";
+				}
+			}
+			echo "</ul></td>";
 
-    </td>
-    <td bgcolor="<?php echo $cfg["table_data_bg"] ?>" width="310" valign="top">
-        <table width="100%" cellpadding="1" border="0">
-        <tr>
-        <td valign="top">
-        <b><?php echo _TORRENTLINKS ?>:</b><br>
-<?php
-        $arLinks = GetLinks();
-        if (is_array($arLinks))
-        {
-            foreach($arLinks as $link)
-            {
-                echo "<a href=\"".$link['url']."\" target=\"_blank\"><img src=\"images/arrow.gif\" width=9 height=9 title=\"".$link['url']."\" border=0 align=\"baseline\">".$link['sitename']."</a><br>\n";
-            }
-        }
-        echo "</ul></td>";
+			$arUsers = GetUsers();
+			$arOnlineUsers = array();
+			$arOfflineUsers = array();
 
-        $arUsers = GetUsers();
-        $arOnlineUsers = array();
-        $arOfflineUsers = array();
+			for($inx = 0; $inx < count($arUsers); $inx++)
+			{
+				if(IsOnline($arUsers[$inx]))
+				{
+					array_push($arOnlineUsers, $arUsers[$inx]);
+				}
+				else
+				{
+					array_push($arOfflineUsers, $arUsers[$inx]);
+				}
+			}
 
-        for($inx = 0; $inx < count($arUsers); $inx++)
-        {
-            if(IsOnline($arUsers[$inx]))
-            {
-                array_push($arOnlineUsers, $arUsers[$inx]);
-            }
-            else
-            {
-                array_push($arOfflineUsers, $arUsers[$inx]);
-            }
-        }
+			echo "<td bgcolor=\"".$cfg["table_data_bg"]."\" valign=\"top\">";
+			echo "<b>"._ONLINE.":</b><br>";
 
-        echo "<td bgcolor=\"".$cfg["table_data_bg"]."\" valign=\"top\">";
-        echo "<b>"._ONLINE.":</b><br>";
+			for($inx = 0; $inx < count($arOnlineUsers); $inx++)
+			{
+				echo "<a href=\"message.php?to_user=".$arOnlineUsers[$inx]."\">";
+				echo "<img src=\"images/user.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">". $arOnlineUsers[$inx];
+				echo "</a><br>\n";
+			}
 
-        for($inx = 0; $inx < count($arOnlineUsers); $inx++)
-        {
-            echo "<a href=\"message.php?to_user=".$arOnlineUsers[$inx]."\">";
-            echo "<img src=\"images/user.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">". $arOnlineUsers[$inx];
-            echo "</a><br>\n";
-        }
+			// Does the user want to see offline users?
+			if ($cfg["hide_offline"] == false)
+			{
+				echo "<b>"._OFFLINE.":</b></br>";
+				// Show offline users
 
-        // Does the user want to see offline users?
-        if ($cfg["hide_offline"] == false)
-        {
-            echo "<b>"._OFFLINE.":</b></br>";
-            // Show offline users
+				for($inx = 0; $inx < count($arOfflineUsers); $inx++)
+				{
+					echo "<a href=\"message.php?to_user=".$arOfflineUsers[$inx]."\">";
+					echo "<img src=\"images/user_offline.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">".$arOfflineUsers[$inx];
+					echo "</a><br>\n";
+				}
+			}
 
-            for($inx = 0; $inx < count($arOfflineUsers); $inx++)
-            {
-                echo "<a href=\"message.php?to_user=".$arOfflineUsers[$inx]."\">";
-                echo "<img src=\"images/user_offline.gif\" width=17 height=14 title=\"\" border=0 align=\"bottom\">".$arOfflineUsers[$inx];
-                echo "</a><br>\n";
-            }
-        }
-
-        echo "</td>";
-?>
-        </tr>
-        </table>
-    </td>
-</tr>
-<tr>
-    <td bgcolor="<?php echo $cfg["table_header_bg"] ?>" colspan="2">
-<?php
-    displayDriveSpaceBar($drivespace);
-?>
-    </td>
-</tr>
-<tr>
-    <td bgcolor="<?php echo $cfg["table_data_bg"] ?>" colspan="2">
-    <div align="center">
-    <font face="Arial" size="2">
-    <a href="readrss.php">
-    <img src="images/download_owner.gif" width="16" height="16" border="0" title="RSS Torrents" align="absmiddle">RSS Torrents</a>
-     |
-    <a href="drivespace.php">
-    <img src="images/hdd.gif" width="16" height="16" border="0" title="<?php echo $drivespace ?>% Used" align="absmiddle"><?php echo _DRIVESPACE ?></a>
-     |
-    <a href="who.php">
-    <img src="images/who.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _SERVERSTATS ?></a>
-     |
-    <a href="all_services.php">
-    <img src="images/all.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _ALL ?></a>
-     |
-    <a href="dir.php">
-    <img src="images/folder.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _DIRECTORYLIST ?></a>
-     |
-    <a href="dir.php?dir=<?php echo $cfg["user"] ?>"><img src="images/folder.gif" width="16" height="16" title="My Directory" border="0" align="absmiddle">My Directory</a>
-    </font>
-    </div>
-    </td>
-</tr>
-</table>
+			echo "</td>";
+	?>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="<?php echo $cfg["table_header_bg"] ?>" colspan="2">
+	<?php
+		displayDriveSpaceBar($drivespace);
+	?>
+		</td>
+	</tr>
+		<tr>
+			<td bgcolor="<?php echo $cfg["table_data_bg"] ?>" colspan="2">
+			<div align="center">
+			<font face="Arial" size="2">
+			<a href="readrss.php">
+			<img src="images/download_owner.gif" width="16" height="16" border="0" title="RSS Torrents" align="absmiddle">RSS Torrents</a>
+			 |
+			<a href="drivespace.php">
+			<img src="images/hdd.gif" width="16" height="16" border="0" title="<?php echo $drivespace ?>% Used" align="absmiddle"><?php echo _DRIVESPACE ?></a>
+			 |
+			<a href="who.php">
+			<img src="images/who.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _SERVERSTATS ?></a>
+			 |
+			<a href="all_services.php">
+			<img src="images/all.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _ALL ?></a>
+			 |
+			<a href="dir.php">
+			<img src="images/folder.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _DIRECTORYLIST ?></a>
+			 |
+			<a href="dir.php?dir=<?php echo $cfg["user"] ?>"><img src="images/folder.gif" width="16" height="16" title="My Directory" border="0" align="absmiddle">My Directory</a>
+			</font>
+			</div>
+			</td>
+		</tr>
+	</table>
 <?php
     getDirList($cfg["torrent_file_path"]);
 ?>
