@@ -695,7 +695,7 @@ if (isset($_POST['ajax'])){
 	</script>
 </head>
 
-<body onLoad="UpdateRefresh();" topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
+<body topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
 	<div id="overDiv" style="position:absolute;visibility:hidden;z-index:1000;"></div>
 	<div align="center">
 
