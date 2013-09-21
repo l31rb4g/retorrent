@@ -94,7 +94,7 @@ Refresher = new Class({
 							'events': {
 								'click': function(ev){
 									ev.stop();
-									StartTorrent('startpop.php?torrent=' + l.entry);
+									StartTorrent('/startpop?torrent=' + l.entry);
 								}
 							}
 						}).adopt(
