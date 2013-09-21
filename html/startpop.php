@@ -23,7 +23,7 @@
 */
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/inc/cfg/config.php');
-include_once(ROOT.'/functions.php');
+include_once(ROOT.'/inc/functions.php');
 require_once(ROOT.'/inc/metaInfo.php');
 
 $torrent = SecurityClean(getRequestVar('torrent'));
