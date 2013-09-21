@@ -14,11 +14,11 @@ Refresher = new Class({
 			},
 			'onSuccess': function(r){
 				this.rebuildTable(r);
+				setTimeout(function(){
+					this.request.send();
+				}.bind(this), 1000);
 			}.bind(this)
 		});
-		this.timer = setTimeout(function(){
-			this.request.send();
-		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
 		var last = ($$('#torrentTable tbody > tr').length - 2);
