@@ -2934,12 +2934,14 @@ function getDirListAjax($dirName)
             {
 //                $output .= "<a href=\"index.php?alias_file=".$alias."&kill=".$kill_id."&kill_torrent=".urlencode($entry)."\"><img src=\"images/kill.gif\" width=16 height=16 title=\""._STOPDOWNLOAD."\" border=0></a>";
 //                $output .= "<img src=\"images/delete_off.gif\" width=16 height=16 border=0>";
+				$res[$i]['delete'] = 'off';
             }
             else
             {
                 if($torrentowner == "n/a")
                 {
 //                    $output .= "<img src=\"images/run_off.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
+					$res[$i]['run'] = 'off';
                 }
                 else
                 {
@@ -2957,10 +2959,12 @@ function getDirListAjax($dirName)
                                 if($show_run)
                                 {
 //                                    $output .= "<a href=\"#\" onclick=\"StartTorrent('startpop.php?torrent=".urlencode($entry)."')\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
+									$res[$i]['run'] = 'advanced';
                                 }
                                 else
                                 {
 //                                    $output .= "<a href=\"#\" onclick=\"StartTorrent('startpop.php?torrent=".urlencode($entry)."')\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
+									$res[$i]['seed'] = 'on';
                                 }
                             }
                             else
@@ -2969,10 +2973,12 @@ function getDirListAjax($dirName)
                                 if($show_run)
                                 {
                                     $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
+									$res[$i]['run'] = 'quick';
                                 }
                                 else
                                 {
                                     $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
+									$res[$i]['seed'] = 'on';
                                 }
                             }
                         }
@@ -2980,6 +2986,7 @@ function getDirListAjax($dirName)
                         {
                             // pid file exists so this may still be running or dieing.
                             $output .= "<img src=\"images/run_off.gif\" width=16 height=16 border=0 title=\""._STOPPING."\">";
+							$res[$i]['run'] = 'off';
                         }
                     }
                 }
