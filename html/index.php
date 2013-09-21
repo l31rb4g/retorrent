@@ -660,5 +660,5 @@ if (isset($_POST['ajax'])){
 	die;
 }
 
-import('templates/main.php');
+require('templates/main.php') or die('template not found');
 ?>
