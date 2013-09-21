@@ -56,7 +56,16 @@ Refresher = new Class({
 					})
 				),
 				new Element('td'),
-				new Element('td'),
+				new Element('td', {'align': 'center'}).adopt(
+					new Element('a', {
+						'href': 'message.php?to_user=' + l.owner
+					}).adopt(
+						new Element('font', {
+							'class': 'tiny',
+							'text': l.owner
+						})
+					)
+				),
 				new Element('td', {
 					'html': l.status
 				}),
