@@ -57,7 +57,9 @@ Refresher = new Class({
 				),
 				new Element('td'),
 				new Element('td'),
-				new Element('td'),
+				new Element('td', {
+					'html': l.status
+				}),
 				new Element('td'),
 				new Element('td')
 			);
