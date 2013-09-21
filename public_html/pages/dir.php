@@ -72,7 +72,7 @@ if ($del != "")
         AuditAction($cfg["constants"]["error"], "ILLEGAL DELETE: ".$cfg['user']." tried to delete ".$del);
     }
 
-    header("Location: dir.php?dir=".urlencode($current));
+    header("Location: dir?dir=".urlencode($current));
 }
 
 // Are we to download something?
@@ -133,7 +133,7 @@ if ($down != "" && $cfg["enable_file_download"])
     {
         AuditAction($cfg["constants"]["error"], "ILLEGAL DOWNLOAD: ".$cfg['user']." tried to download ".$down);
     }
-    header("Location: dir.php?dir=".urlencode($current));
+    header("Location: dir?dir=".urlencode($current));
 }
 
 // Are we to download something?
@@ -211,7 +211,7 @@ if ($tar != "" && $cfg["enable_file_download"])
     {
         AuditAction($cfg["constants"]["error"], "ILLEGAL TAR DOWNLOAD: ".$cfg['user']." tried to download ".$tar);
     }
-    header("Location: dir.php?dir=".urlencode($current));
+    header("Location: dir?dir=".urlencode($current));
 }
 
 if ($dir == "")
@@ -296,12 +296,12 @@ function ListDirectory($dirName)
     if (isset($dir))
     {
         //setup default parent directory URL
-        $parentURL = "dir.php";
+        $parentURL = "dir";
 
         //get the real parentURL
         if (preg_match("/^(.+)\/.+$/",$dir,$matches) == 1)
         {
-            $parentURL="dir.php?dir=" . urlencode($matches[1]);
+            $parentURL="dir?dir=" . urlencode($matches[1]);
         }
 
         echo "<table cellpadding=2 width=740>";
@@ -329,7 +329,7 @@ function ListDirectory($dirName)
         {
             if (@is_dir($dirName.$entry))
             {
-                echo "<tr bgcolor=\"".$bg."\"><td><a href=\"dir.php?dir=".urlencode($dir.$entry)."\"><img src=\"images/folder2.gif\" width=\"16\" height=\"16\" title=\"".$entry."\" border=\"0\" align=\"absmiddle\">".$entry."</a></td>";
+                echo "<tr bgcolor=\"".$bg."\"><td><a href=\"dir?dir=".urlencode($dir.$entry)."\"><img src=\"images/folder2.gif\" width=\"16\" height=\"16\" title=\"".$entry."\" border=\"0\" align=\"absmiddle\">".$entry."</a></td>";
                 echo "<td>&nbsp;</td>";
                 echo "<td>&nbsp;</td>";
                 echo "<td align=\"right\">";
@@ -341,7 +341,7 @@ function ListDirectory($dirName)
 
                 if ($cfg["enable_file_download"])
                 {
-                    echo "<a href=\"dir.php?tar=".urlencode($dir.$entry)."\"><img src=\"images/tar_down.gif\" width=16 height=16 title=\"Download as ".$cfg["package_type"]."\" border=0></a>";
+                    echo "<a href=\"dir?tar=".urlencode($dir.$entry)."\"><img src=\"images/tar_down.gif\" width=16 height=16 title=\"Download as ".$cfg["package_type"]."\" border=0></a>";
                 }
 
                 // The following lines of code were suggested by Jody Steele jmlsteele@stfu.ca
@@ -350,7 +350,7 @@ function ListDirectory($dirName)
                 // the ability to delete sub directories
                 if(IsAdmin($cfg["user"]) || preg_match("/^" . $cfg["user"] . "/",$dir))
                 {
-                    echo "<a href=\"dir.php?del=".urlencode($dir.$entry)."\" onclick=\"return ConfirmDelete('".addslashes($entry)."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
+                    echo "<a href=\"dir?del=".urlencode($dir.$entry)."\" onclick=\"return ConfirmDelete('".addslashes($entry)."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
                     echo "<input type=\"checkbox\" name=\"file[]\" value=\"".urlencode($dir.$entry)."\">";
                 }
                 else
@@ -420,9 +420,9 @@ function ListDirectory($dirName)
                 if ($cfg["enable_file_download"])
                 {
                     // Yes, let them download
-                    echo "<a href=\"dir.php?down=".urlencode($dir.$entry)."\" >";
+                    echo "<a href=\"dir?down=".urlencode($dir.$entry)."\" >";
                     echo "<img src=\"".$image."\" width=\"16\" height=\"16\" alt=\"".$entry."\" border=\"0\"></a>";
-                    echo "<a href=\"dir.php?down=".urlencode($dir.$entry)."\" >".$entry."</a>";
+                    echo "<a href=\"dir?down=".urlencode($dir.$entry)."\" >".$entry."</a>";
                 }
                 else
                 {
@@ -449,7 +449,7 @@ function ListDirectory($dirName)
                 if ($cfg["enable_file_download"])
                 {
                     // Show the download button
-                    echo "<a href=\"dir.php?down=".urlencode($dir.$entry)."\" >";
+                    echo "<a href=\"dir?down=".urlencode($dir.$entry)."\" >";
                     echo "<img src=\"images/download_owner.gif\" width=16 height=16 title=\"Download\" border=0>";
                     echo "</a>";
                 }
@@ -460,7 +460,7 @@ function ListDirectory($dirName)
                 // the ability to delete files
                 if(IsAdmin($cfg["user"]) || preg_match("/^" . $cfg["user"] . "/",$dir))
                 {
-                    echo "<a href=\"dir.php?del=".urlencode($dir.$entry)."\" onclick=\"return ConfirmDelete('".addslashes($entry)."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
+                    echo "<a href=\"dir?del=".urlencode($dir.$entry)."\" onclick=\"return ConfirmDelete('".addslashes($entry)."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
                     echo "<input type=\"checkbox\" name=\"file[]\" value=\"".urlencode($dir.$entry)."\">";
                 }
                 else
