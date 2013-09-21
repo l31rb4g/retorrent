@@ -55,7 +55,7 @@ Refresher = new Class({
 						'text': l.entry
 					})
 				),
-				new Element('td').adopt(
+				new Element('td', {'align': 'right'}).adopt(
 					new Element('font', {
 						'class': 'tiny',
 						'html': l.size
