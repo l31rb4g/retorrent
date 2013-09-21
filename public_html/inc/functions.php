@@ -2812,7 +2812,7 @@ function getDirListAjax($dirName)
         if ($af->running == "2"){
             $_status = "<i><font color=\"#32cd32\">"._NEW."</font></i>";
 			$res[$i]['status'] = "<div align=\"center\"><i><font color=\"#32cd32\">"._NEW."</font></i></div>";
-			$res[$i]['new'] = true;
+			$res[$i]['run'] = 'on';
 			$res[$i]['delete'] = 'on';
         }
         elseif ($af->running == "3" ){
