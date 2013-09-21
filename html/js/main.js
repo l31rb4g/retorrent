@@ -1,4 +1,5 @@
 window.addEvent('domready', function(){
+	console.loog('domready');
 	window.refresher = new Refresher();
 });
 
