@@ -2414,7 +2414,7 @@ function getDirList($dirName)
 
         $hd = getStatusImage($af);
 
-        $output .= "<tr><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.' '.$displayname."</td>";
+        $output .= "<tr class=\"ttr\"><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.' '.$displayname."</td>";
         $output .= "<td align=\"right\"><font class=\"tiny\">".formatBytesToKBMGGB($af->size)."</font></td>";
         $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
         $output .= "<td valign=\"bottom\"><div align=\"center\">";
