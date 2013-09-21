@@ -52,10 +52,14 @@ $cfg["db_pass"] = "eanni4";            // password for database
 // ***************************************************************************
 // ***************************************************************************
 
-$cfg["pagetitle"] = "TorrentFlux";
+$cfg["pagetitle"] = "TorrentFluz";
 
 // TorrentFlux Version
 $cfg["version"] = "2.4";
+
+
+$cfg["enable_search"] = false;
+
 
 // CONSTANTS
 $cfg["constants"] = array();
