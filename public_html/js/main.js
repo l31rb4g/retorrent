@@ -202,3 +202,12 @@ Refresher = new Class({
 
 
 
+function ShowDetails(name_file){
+  window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=430,height=225');
+}
+function StartTorrent(name_file){
+	myWindow = window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=700,height=530');
+}
+function ConfirmDelete(file){
+	return confirm("<?php echo _ABOUTTODELETE ?>: " + file);
+}

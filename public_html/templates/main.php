@@ -18,17 +18,6 @@
 		var ol_cap = "&nbsp;Torrent Status";
 	</script>
 	<script src="/js/overlib.js" type="text/javascript"></script>
-	<script language="javascript">
-		function ShowDetails(name_file){
-		  window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=430,height=225');
-		}
-		function StartTorrent(name_file){
-			myWindow = window.open (name_file,'_blank','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=700,height=530');
-		}
-		function ConfirmDelete(file){
-			return confirm("<?php echo _ABOUTTODELETE ?>: " + file);
-		}
-	</script>
 </head>
 <body topmargin="8" bgcolor="<?php echo $cfg["main_bgcolor"] ?>">
 	<div id="overDiv" style="position:absolute;visibility:hidden;z-index:1000;"></div>
@@ -151,22 +140,22 @@
 							<td bgcolor="<?php echo $cfg["table_data_bg"] ?>" colspan="2">
 								<div align="center">
 									<font face="Arial" size="2">
-										<a href="readrss.php">
+										<a href="/readrss">
 										<img src="images/download_owner.gif" width="16" height="16" border="0" title="RSS Torrents" align="absmiddle">RSS Torrents</a>
 										 |
-										<a href="drivespace.php">
+										<a href="/drivespace">
 										<img src="images/hdd.gif" width="16" height="16" border="0" title="<?php echo $drivespace ?>% Used" align="absmiddle"><?php echo _DRIVESPACE ?></a>
 										 |
-										<a href="who.php">
+										<a href="/who">
 										<img src="images/who.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _SERVERSTATS ?></a>
 										 |
-										<a href="all_services.php">
+										<a href="/all_services">
 										<img src="images/all.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _ALL ?></a>
 										 |
-										<a href="dir.php">
+										<a href="/dir">
 										<img src="images/folder.gif" width="16" height="16" title="" border="0" align="absmiddle"><?php echo _DIRECTORYLIST ?></a>
 										 |
-										<a href="dir.php?dir=<?php echo $cfg["user"] ?>"><img src="images/folder.gif" width="16" height="16" title="My Directory" border="0" align="absmiddle">My Directory</a>
+										<a href="/dir?dir=<?php echo $cfg["user"] ?>"><img src="images/folder.gif" width="16" height="16" title="My Directory" border="0" align="absmiddle">My Directory</a>
 									</font>
 								</div>
 							</td>

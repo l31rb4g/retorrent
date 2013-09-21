@@ -22,7 +22,6 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-include_once($_SERVER['DOCUMENT_ROOT'].'/inc/cfg/config.php');
 require_once(ROOT.'/inc/metaInfo.php');
 
 $torrent = SecurityClean(getRequestVar('torrent'));

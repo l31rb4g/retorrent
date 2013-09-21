@@ -22,8 +22,6 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-include_once("config.php");
-include_once("functions.php");
 include_once("lastRSS.php");
 
 // check http://varchars.com/rss/ for feeds
