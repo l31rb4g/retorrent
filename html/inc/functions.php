@@ -2811,7 +2811,7 @@ function getDirListAjax($dirName)
 
         if ($af->running == "2"){
             $output .= "<i><font color=\"#32cd32\">"._NEW."</font></i>";
-			$res[$i]['status'] = _NEW;
+			$res[$i]['status'] = "<i><font color=\"#32cd32\">"._NEW."</font></i>";
         }
         elseif ($af->running == "3" ){
             $estTime = "Waiting...";
@@ -2820,7 +2820,7 @@ function getDirListAjax($dirName)
                 $qDateTime = date("m/d/Y H:i:s", strval(filectime($dirName."queue/".$alias.".Qinfo")));
             }
             $output .= "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
-			$res[$i]['status'] = _QUEUED;
+			$res[$i]['status'] = "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
         }
         else
         {
@@ -2877,15 +2877,15 @@ function getDirListAjax($dirName)
             if ($af->percent_done >= 100){
                 if(trim($af->up_speed) != "" && $af->running == "1"){
                     $popup_msg .= $timeStarted;
-                    $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" style=\"font-size:7pt;\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">seeding (".$af->up_speed.") ".$sharing."</a>";
+                    $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" style=\"font-size:7pt;\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">seeding (".$af->up_speed.") ".$sharing."</a>";
                 } else {
                     $popup_msg .= "<br>"._ENDED.": ".date("m/d/Y H:i:s",  strval(filemtime($dirName.$alias)));
-                    $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=red>"._DONE."</font></i></a>";
+                    $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=red>"._DONE."</font></i></a>";
                 }
                 $show_run = false;
             } else if ($af->percent_done < 0) {
                 $popup_msg .= $timeStarted;
-                $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=\"#989898\">"._INCOMPLETE."</font></i></a>";
+                $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=\"#989898\">"._INCOMPLETE."</font></i></a>";
                 $show_run = true;
             } else {
                 $popup_msg .= $timeStarted;
@@ -2895,19 +2895,24 @@ function getDirListAjax($dirName)
                 if ($graph_width == 100) {
                     $background = $progress_color;
                 }
-                $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">";
-                $output .= "<font class=\"tiny\"><strong>".$af->percent_done."%</strong> @ ".$af->down_speed."</font></a><br>";
-                $output .= "<table width=\"100\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
-                $output .= "<tr><td background=\"themes/".$cfg["theme"]."/images/progressbar.gif\" bgcolor=\"".$progress_color."\"><img src=\"images/blank.gif\" width=\"".$graph_width."\" height=\"".$bar_width."\" border=\"0\"></td>";
-                $output .= "<td bgcolor=\"".$background."\"><img src=\"images/blank.gif\" width=\"".(100 - $graph_width)."\" height=\"".$bar_width."\" border=\"0\"></td>";
-                $output .= "</tr></table>";
+
+                $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">";
+                $_status .= "<font class=\"tiny\"><strong>".$af->percent_done."%</strong> @ ".$af->down_speed."</font></a><br>";
+                $_status .= "<table width=\"100\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
+                $_status .= "<tr><td background=\"themes/".$cfg["theme"]."/images/progressbar.gif\" bgcolor=\"".$progress_color."\"><img src=\"images/blank.gif\" width=\"".$graph_width."\" height=\"".$bar_width."\" border=\"0\"></td>";
+                $_status .= "<td bgcolor=\"".$background."\"><img src=\"images/blank.gif\" width=\"".(100 - $graph_width)."\" height=\"".$bar_width."\" border=\"0\"></td>";
+                $_status .= "</tr></table>";
             }
+
+			$res[$i]['status'] = $_status;
 
         }
 
         $output .= "</div></td>";
         $output .= "<td><div class=\"tiny\" align=\"center\">".$estTime."</div></td>";
         $output .= "<td><div align=center>";
+
+		$res[$i]['esttime'] = $estTime;
 
         $torrentDetails = _TORRENTDETAILS;
         if ($lastUser != "")
