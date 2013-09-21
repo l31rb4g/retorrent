@@ -97,7 +97,7 @@ Refresher = new Class({
 							})
 						),
 						new Element('a', {
-							'href': 'index.php?alias_file=' + 'rock_in_rio_2013_rob_zombie_720p_hdtv_x264_fhxhd_mkv_ms_.stat&amp;kill=2369&amp;kill_torrent=Rock.in.Rio.2013.ROB.ZOMBIE.720p.HDTV.x264_FHxHD.mkv_MS_.torrent'
+							'href': 'index.php?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
 						}).adopt(
 							new Element('img', {
 								'src': 'images/kill.gif',
