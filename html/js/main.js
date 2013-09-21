@@ -51,7 +51,12 @@ Refresher = new Class({
 					new Element('span', {
 						'text': l.entry
 					})
-				)
+				),
+				new Element('td'),
+				new Element('td'),
+				new Element('td'),
+				new Element('td'),
+				new Element('td')
 			);
 			tr.inject($$('#torrentTable tbody')[0]);
 		});
