@@ -2952,30 +2952,19 @@ function getDirListAjax($dirName)
 						//$res[$i]['run'] = 'off';
                     } else {
                         if (!is_file($cfg["torrent_file_path"].$alias.".pid")){
+							$res[$i]['seed'] = 'on';
                             // Allow Avanced start popup?
-                            if ($cfg["advanced_start"])
-                            {
-                                if($show_run)
-                                {
+                            if ($cfg["advanced_start"]){
+                                if($show_run){
 //                                    $output .= "<a href=\"#\" onclick=\"StartTorrent('startpop.php?torrent=".urlencode($entry)."')\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
-									$res[$i]['run'] = 'on';
-                                }
-                                else
-                                {
+                                } else {
 //                                    $output .= "<a href=\"#\" onclick=\"StartTorrent('startpop.php?torrent=".urlencode($entry)."')\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
-									$res[$i]['seed'] = 'on';
                                 }
-                            }
-                            else
-                            {
+                            } else {
                                 // Quick Start
-                                if($show_run)
-                                {
+                                if($show_run){
                                     $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
-									$res[$i]['run'] = 'quick';
-                                }
-                                else
-                                {
+                                } else {
                                     $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
 									$res[$i]['seed'] = 'on';
 									$res[$i]['delete'] = 'on';
