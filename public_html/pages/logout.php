@@ -23,8 +23,6 @@
 */
 
 
-include_once("config.php");
-
 // Start Session and grab user
 session_name("TorrentFlux");
 session_start();
