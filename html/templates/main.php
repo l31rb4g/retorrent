@@ -221,13 +221,6 @@
 													<td width="33%" valign="bottom">
 														<div align="center" class="tiny">
 															<?php
-															if(!isset($_SESSION['prefresh']) || ($_SESSION['prefresh'] == true)) {
-																echo "*** "._PAGEWILLREFRESH." <span id='span_refresh'>".$cfg["page_refresh"]."</span> "._SECONDS." ***<br>";
-																echo "<a href=\"".$_SERVER['PHP_SELF']."?pagerefresh=false\"><font class=\"tiny\">"._TURNOFFREFRESH."</font></a>";
-															} else {
-																echo "<a href=\"".$_SERVER['PHP_SELF']."?pagerefresh=true\"><font class=\"tiny\">"._TURNONREFRESH."</font></a>";
-															}
-
 															if($drivespace >= 98) {
 																echo "\n\n<script  language=\"JavaScript\">\n alert(\""._WARNING.": ".$drivespace."% "._DRIVESPACEUSED."\")\n </script>";
 															}
