@@ -111,7 +111,6 @@ Refresher = new Class({
 			);
 
 			var tp = tr.getElement('.tpanel');
-			console.log(tp);
 			if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
