@@ -2640,23 +2640,20 @@ function getDirList($dirName)
     // Now spit out the junk
     echo "<table id=\"torrentTable\" bgcolor=\"".$cfg["table_data_bg"]."\" width=\"100%\" bordercolor=\"".$cfg["table_border_dk"]."\" border=1 cellpadding=3 cellspacing=0>";
 
-    if (sizeof($arUserTorrent) > 0)
-    {
-        echo "<tr><td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">".$cfg["user"].": "._TORRENTFILE."</div></td>";
+    if (sizeof($arUserTorrent) > 0){
+        echo "<tr><td width=\"420\" background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">".$cfg["user"].": "._TORRENTFILE."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">Size</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._USER."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._STATUS."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ESTIMATEDTIME."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ADMIN."</div></td>";
         echo "</tr>\n";
-        foreach($arUserTorrent as $torrentrow)
-        {
+        foreach($arUserTorrent as $torrentrow){
             echo $torrentrow;
         }
     }
 
-    if (sizeof($arListTorrent) > 0)
-    {
+    if (sizeof($arListTorrent) > 0){
         echo "<tr><td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._TORRENTFILE."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">Size</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._USER."</div></td>";
@@ -2664,8 +2661,7 @@ function getDirList($dirName)
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ESTIMATEDTIME."</div></td>";
         echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ADMIN."</div></td>";
         echo "</tr>\n";
-        foreach($arListTorrent as $torrentrow)
-        {
+        foreach($arListTorrent as $torrentrow){
             echo $torrentrow;
         }
     }
