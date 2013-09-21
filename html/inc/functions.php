@@ -2810,8 +2810,7 @@ function getDirListAjax($dirName)
 		$res[$i]['owner'] = $torrentowner;
 
         if ($af->running == "2"){
-            $output .= "<i><font color=\"#32cd32\">"._NEW."</font></i>";
-			$res[$i]['status'] = "<i><font color=\"#32cd32\">"._NEW."</font></i>";
+            $_status = "<i><font color=\"#32cd32\">"._NEW."</font></i>";
         }
         elseif ($af->running == "3" ){
             $estTime = "Waiting...";
@@ -2819,8 +2818,7 @@ function getDirListAjax($dirName)
             if(is_file($dirName."queue/".$alias.".Qinfo")) {
                 $qDateTime = date("m/d/Y H:i:s", strval(filectime($dirName."queue/".$alias.".Qinfo")));
             }
-            $output .= "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
-			$res[$i]['status'] = "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
+            $_status = "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
         }
         else
         {
@@ -2904,13 +2902,13 @@ function getDirListAjax($dirName)
                 $_status .= "</tr></table>";
             }
 
-			$res[$i]['status'] = $_status;
+			$res[$i]['status'] = "<div align=\"center\">".$_status."</div>";
 
         }
 
-        $output .= "</div></td>";
-        $output .= "<td><div class=\"tiny\" align=\"center\">".$estTime."</div></td>";
-        $output .= "<td><div align=center>";
+//        $output .= "</div></td>";
+//        $output .= "<td><div class=\"tiny\" align=\"center\">".$estTime."</div></td>";
+//        $output .= "<td><div align=center>";
 
 		$res[$i]['esttime'] = $estTime;
 
