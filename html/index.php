@@ -662,7 +662,8 @@ if (isset($_POST['ajax'])){
 	die;
 }
 
-getDirListAjax($cfg["torrent_file_path"]);
+$json = getDirListAjax($cfg["torrent_file_path"]);
+pr($json);
 die;
 require_once(ROOT.'/templates/main.php');
 ?>
