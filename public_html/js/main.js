@@ -129,7 +129,7 @@ Refresher = new Class({
 						'src': '/images/run_off.gif',
 						'width': 16,
 						'height': 16,
-						'title': 'Start torrent',
+						'title': 'Stopping',
 						'border': 0
 					}).inject(tp);
 				}
