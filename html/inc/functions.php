@@ -2819,12 +2819,11 @@ function getDirListAjax($dirName)
         elseif ($af->running == "3" ){
             $estTime = "Waiting...";
             $qDateTime = '';
-            if(is_file($dirName."queue/".$alias.".Qinfo"))
-            {
+            if(is_file($dirName."queue/".$alias.".Qinfo")) {
                 $qDateTime = date("m/d/Y H:i:s", strval(filectime($dirName."queue/".$alias.".Qinfo")));
             }
-
             $output .= "<i><font color=\"#000000\" onmouseover=\"return overlib('"._QUEUED.": ".$qDateTime."<br>', CSSCLASS);\" onmouseout=\"return nd();\">"._QUEUED."</font></i>";
+			$res[$i]['status'] = _QUEUED;
         }
         else
         {
@@ -2852,8 +2851,7 @@ function getDirListAjax($dirName)
             $popup_msg .= "<br>"._USER.": ".$torrentowner;
 
             $eCount = 0;
-            foreach ($af->errors as $key => $value)
-            {
+            foreach ($af->errors as $key => $value){
                 if(strpos($value," (x"))
                 {
                     $curEMsg = substr($value,strpos($value," (x")+3);
@@ -2868,48 +2866,36 @@ function getDirListAjax($dirName)
 
             $popup_msg .= "<br>"._UPLOADED.": ".date("m/d/Y H:i:s", $uploaddate);
 
-            if (is_file($dirName.$alias.".pid"))
-            {
+            if (is_file($dirName.$alias.".pid")){
                 $timeStarted = "<br>"._STARTED.": ".date("m/d/Y H:i:s",  strval(filectime($dirName.$alias.".pid")));
             }
 
             // incriment the totals
-            if(!isset($cfg["total_upload"])) $cfg["total_upload"] = 0;
-            if(!isset($cfg["total_download"])) $cfg["total_download"] = 0;
+            if (!isset($cfg["total_upload"])) $cfg["total_upload"] = 0;
+            if (!isset($cfg["total_download"])) $cfg["total_download"] = 0;
 
             $cfg["total_upload"] = $cfg["total_upload"] + GetSpeedValue($af->up_speed);
             $cfg["total_download"] = $cfg["total_download"] + GetSpeedValue($af->down_speed);
 
-            if($af->percent_done >= 100)
-            {
-                if(trim($af->up_speed) != "" && $af->running == "1")
-                {
+            if ($af->percent_done >= 100){
+                if(trim($af->up_speed) != "" && $af->running == "1"){
                     $popup_msg .= $timeStarted;
                     $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" style=\"font-size:7pt;\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">seeding (".$af->up_speed.") ".$sharing."</a>";
-                }
-                else
-                {
+                } else {
                     $popup_msg .= "<br>"._ENDED.": ".date("m/d/Y H:i:s",  strval(filemtime($dirName.$alias)));
                     $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=red>"._DONE."</font></i></a>";
                 }
                 $show_run = false;
-            }
-            else if ($af->percent_done < 0)
-            {
+            } else if ($af->percent_done < 0) {
                 $popup_msg .= $timeStarted;
                 $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=\"#989898\">"._INCOMPLETE."</font></i></a>";
                 $show_run = true;
-            }
-            else
-            {
+            } else {
                 $popup_msg .= $timeStarted;
-
-                if($af->percent_done > 1)
-                {
+                if ($af->percent_done > 1) {
                     $graph_width = $af->percent_done;
                 }
-                if($graph_width == 100)
-                {
+                if ($graph_width == 100) {
                     $background = $progress_color;
                 }
                 $output .= "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\">";

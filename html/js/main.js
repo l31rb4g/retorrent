@@ -3,13 +3,12 @@ window.addEvent('domready', function(){
 });
 
 Refresher = new Class({
+	data: {},
 	initialize: function(){
 		this.request = new Request.JSON({
-			'url': '/index.php',
+			'url': '/index.php?ajax',
 			'method': 'POST',
-			'data': {
-				'ajax': '1'
-			},
+			'data': this.data,
 			'onError': function(){
 				console.log('error');
 			},
