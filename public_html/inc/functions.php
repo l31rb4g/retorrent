@@ -2360,10 +2360,9 @@ function getDirList($dirName)
             $af->WriteFile();
         }
 
-        if(strlen($entry) >= 47)
-        {
+        if(strlen($entry) >= 70){
             // needs to be trimmed
-            $displayname = substr($entry, 0, 44);
+            $displayname = substr($entry, 0, 67);
             $displayname .= "...";
         }
 
