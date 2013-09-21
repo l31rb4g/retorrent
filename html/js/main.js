@@ -3,10 +3,10 @@ window.addEvent('domready', function(){
 });
 
 Refresher = new Class({
-	data: {},
+	data: {'ajax': 1},
 	initialize: function(){
 		this.request = new Request.JSON({
-			'url': '/index.php?ajax',
+			'url': '/index.php',
 			'method': 'POST',
 			'data': this.data,
 			'onError': function(){
@@ -17,7 +17,7 @@ Refresher = new Class({
 			}.bind(this)
 		});
 		this.timer = setTimeout(function(){
-			//this.request.send();
+			this.request.send();
 		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
@@ -32,13 +32,23 @@ Refresher = new Class({
 						'src': '/images/' + l.image,
 						'width': 16,
 						'height': 16,
-						'title': l.title,
+						'title': l.title + l.entry,
 						'border': 0,
 						'align': 'absmiddle'
 					}),
-					new Element('a')
-				})
-
+					new Element('a', {
+						'href': 'maketorrent.php?download=' + l.entry
+					}).adopt(
+						new Element('img', {
+							'src': 'images/down.gif',
+							'width': 9,
+							'height': 9,
+							'title': 'Download torrent file',
+							'border': 0,
+							'align': 'absmiddle'
+						})
+					)
+				)
 			);
 			tr.inject($$('#torrentTable tbody')[0]);
 		});
