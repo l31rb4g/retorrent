@@ -16,7 +16,7 @@ Refresher = new Class({
 				this.rebuildTable(r);
 				setTimeout(function(){
 					this.request.send();
-				}.bind(this), 1000);
+				}.bind(this), 500);
 			}.bind(this)
 		});
 		setTimeout(function(){
@@ -89,7 +89,7 @@ Refresher = new Class({
 						'align': 'center'
 					}).adopt(
 						new Element('a', {
-							'href': 'details.php?torrent=' + l.entry + '&amp;als=false'
+							'href': 'details.php?torrent=' + l.entry + '&als=false'
 						}).adopt(
 							new Element('img', {
 								'src': 'images/properties.png',
