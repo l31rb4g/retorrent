@@ -10,6 +10,9 @@ Refresher = new Class({
 			'data': {
 				'ajax': '1'
 			},
+			'onError': function(){
+				console.log('error');
+			},
 			'onSuccess': function(r){
 				console.log(r);
 			}
