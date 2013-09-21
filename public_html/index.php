@@ -27,20 +27,21 @@ define('INC', ROOT.'/inc');
 define('CFG', INC.'/cfg');
 define('PAGES', ROOT.'/pages');
 
-include_once(INC.'/db.php');
-include_once(CFG.'/config.php');
-
 $url = '/'.str_replace('/', '', $_SERVER['REQUEST_URI']);
 $qs = '';
+
+include_once(INC.'/db.php');
+if ($url != '/login'){
+	include_once(INC.'/functions.php');
+}
+include_once(CFG.'/config.php');
+
 if (preg_match('/\?/', $url)){
 	preg_match('/^([^\?]+)\?(.*)$/', $url, $m);
 	$url = $m[1];
 	$qs = $m[2];
 }
 if (file_exists(PAGES.$url.'.php')){
-	if ($url != '/login'){
-		include_once(INC.'/functions.php');
-	}
 	require_once(PAGES.$url.'.php');
 	die;
 }
