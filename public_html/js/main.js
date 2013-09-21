@@ -116,7 +116,7 @@ Refresher = new Class({
 					'href': '/?torrent=' + l.entry
 				}).adopt(
 					new Element('img', {
-						'src': '/images/run_on.gif',
+						'src': '/images/run_' + l.run ? l.run : 'on' + '.gif',
 						'width': 16,
 						'height': 16,
 						'title': 'Start torrent',
