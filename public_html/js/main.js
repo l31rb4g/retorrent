@@ -114,7 +114,15 @@ Refresher = new Class({
 			if (l.run){
 				if (l.run == 'on'){
 					new Element('a', {
-						'href': '/?torrent=' + l.entry
+						'href': '/?torrent=' + l.entry,
+                                                'events': {
+                                                    'click': function(ev){
+                                                        ev.stop();
+                                                        new Request({
+                                                            'url': '/?torrent=' + l.entry
+                                                        }).send();
+                                                    }
+                                                }
 					}).adopt(
 						new Element('img', {
 							'src': '/images/run_on.gif',
