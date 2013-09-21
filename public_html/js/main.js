@@ -124,7 +124,7 @@ Refresher = new Class({
 						'border': 0
 					})
 				).inject(tp);
-			} else if (l.kill){
+			} else {
 				new Element('a', {
 					'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
 				}).adopt(
