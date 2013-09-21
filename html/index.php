@@ -659,7 +659,7 @@ $drivespace = getDriveSpace($cfg["path"]);
 
 if (isset($_GET['ajax'])){
 	$json = getDirListAjax($cfg["torrent_file_path"]);
-	pr($json);
+	echo $json;
 	die;
 }
 
