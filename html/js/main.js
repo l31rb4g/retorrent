@@ -52,7 +52,7 @@ Refresher = new Class({
 						})
 					),
 					new Element('span', {
-						'text': l.displayname
+						'text': ' ' + l.displayname
 					})
 				),
 				new Element('td', {'align': 'right'}).adopt(
