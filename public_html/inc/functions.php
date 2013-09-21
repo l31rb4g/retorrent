@@ -2888,7 +2888,7 @@ function getDirListAjax($dirName)
                 $popup_msg .= $timeStarted;
                 $_status = "<a href=\"JavaScript:ShowDetails('downloaddetails.php?alias=".$alias."&torrent=".urlencode($entry)."')\" onmouseover=\"return overlib('".$popup_msg."<br>', CSSCLASS);\" onmouseout=\"return nd();\"><i><font color=\"#989898\">"._INCOMPLETE."</font></i></a>";
                 $show_run = true;
-				$res['run'] = 'on';
+				$res[$i]['run'] = 'on';
             } else {
                 $popup_msg .= $timeStarted;
                 if ($af->percent_done > 1) {
