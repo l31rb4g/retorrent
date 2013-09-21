@@ -59,7 +59,7 @@
 								<table width="100%" cellpadding="3" cellspacing="0" border="0">
 									<tr>
 										<td>
-											<form name="form_file" action="index.php" method="post" enctype="multipart/form-data">
+											<form name="form_file" action="/" method="post" enctype="multipart/form-data">
 												<?php echo _SELECTFILE ?>:<br>
 												<input type="File" name="upload_file" size="40">
 												<input type="Submit" value="<?php echo _UPLOAD ?>">
@@ -68,7 +68,7 @@
 									</tr>
 									<tr>
 										<td>
-											<form name="form_url" action="index.php" method="post">
+											<form name="form_url" action="/" method="post">
 												<hr>
 												<?php echo _URLFILE ?>:<br>
 												<input type="text" name="url_upload" size="50">

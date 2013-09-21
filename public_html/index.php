@@ -56,14 +56,14 @@ if(array_key_exists("pagerefresh", $_GET))
     if(getRequestVar("pagerefresh") == "false")
     {
         $_SESSION['prefresh'] = false;
-        header("location: index.php");
+        header("location: /");
         exit();
     }
 
     if(getRequestVar("pagerefresh") == "true")
     {
         $_SESSION["prefresh"] = true;
-        header("location: index.php");
+        header("location: /");
         exit();
     }
 }
@@ -367,7 +367,7 @@ if(!empty($torrent))
             }
             else
             {
-                header("location: index.php");
+                header("location: /");
                 exit();
             }
         }
@@ -457,7 +457,7 @@ if(! $url_upload == '')
     if ($messages == "")
     {
         AuditAction($cfg["constants"]["url_upload"], $file_name);
-        header("location: index.php");
+        header("location: /");
         exit();
     }
     else
@@ -495,7 +495,7 @@ if(!empty($_FILES['upload_file']['name']))
 
                     AuditAction($cfg["constants"]["file_upload"], $file_name);
 
-                    header("location: index.php");
+                    header("location: /");
                 }
                 else
                 {
@@ -539,7 +539,7 @@ if(! $delfile == '')
 
         AuditAction($cfg["constants"]["delete_torrent"], $delfile);
 
-        header("location: index.php");
+        header("location: /");
         exit();
     }
     else
@@ -608,7 +608,7 @@ if(! $kill == '' && is_numeric($kill) )
     }
     else
     {
-        header("location: index.php");
+        header("location: /");
         exit();
     }
 }
@@ -663,11 +663,11 @@ if(isset($_REQUEST["dQueue"]))
     {
         // torrent has been started... try and kill it.
         AuditAction($cfg["constants"]["unqueued_torrent"], $QEntry . "has been started -- TRY TO KILL IT");
-        header("location: index.php?alias_file=".$alias_file."&kill=true&kill_torrent=".urlencode($QEntry));
+        header("location: /?alias_file=".$alias_file."&kill=true&kill_torrent=".urlencode($QEntry));
         exit();
     }
 
-    header("location: index.php");
+    header("location: /");
     exit();
 }
 

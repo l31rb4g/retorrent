@@ -164,7 +164,7 @@ function isNumber(sText)
 <div align="center">
 <strong><?php echo $displayName ?></strong><br>
 <table width="98%" border="0" cellpadding="0" cellspacing="0">
-<tr><form name="theForm" target="_parent" action="index.php" method="POST">
+<tr><form name="theForm" target="_parent" action="/" method="POST">
     <input type="hidden" name="closeme" value="true">
     <input type="hidden" name="torrent" value="<?php echo $torrent; ?>">
     <td>

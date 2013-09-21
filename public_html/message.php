@@ -29,7 +29,7 @@ $to_user = getRequestVar('to_user');
 if(empty($to_user) or empty($cfg['user']))
 {
      // the user probably hit this page direct
-    header("location: index.php");
+    header("location: /");
     exit;
 }
 

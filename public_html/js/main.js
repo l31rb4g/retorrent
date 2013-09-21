@@ -6,7 +6,7 @@ Refresher = new Class({
 	data: {'ajax': 1},
 	initialize: function(){
 		this.request = new Request.JSON({
-			'url': '/index.php',
+			'url': '//',
 			'method': 'POST',
 			'data': this.data,
 			'onError': function(){
@@ -106,7 +106,7 @@ Refresher = new Class({
 							})
 						),
 						new Element('a', {
-							'href': 'index.php?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+							'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
 						}).adopt(
 							new Element('img', {
 								'src': 'images/kill.gif',

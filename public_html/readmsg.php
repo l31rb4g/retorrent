@@ -29,7 +29,7 @@ include_once("functions.php");
 if(empty($cfg['user']))
 {
      // the user probably hit this page direct
-    header("location: index.php");
+    header("location: /");
     exit;
 }
 

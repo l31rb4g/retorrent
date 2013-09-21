@@ -26,7 +26,7 @@ include_once("config.php");
 include_once("functions.php");
 
 if (! IsAdmin($cfg["user"])) {
-    header("Location:index.php");
+    header("Location:/");
 }
 
 $result = shell_exec("w");

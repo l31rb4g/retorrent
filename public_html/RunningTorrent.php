@@ -115,7 +115,7 @@ class RunningTorrent
         $output .= "<td><div align=center><div class=\"tiny\" align=\"left\">";
         $output .= str_replace(array(".stat"),"",$this->statFile);
         $output .= "<br>".$this->args."</div></td>";
-        $output .= "<td><a href=\"index.php?alias_file=".$this->statFile;
+        $output .= "<td><a href=\"/?alias_file=".$this->statFile;
         $output .= "&kill=".$this->processId;
         $output .= "&kill_torrent=".urlencode($this->torrentFile);
         $output .= "&return=admin\">";
