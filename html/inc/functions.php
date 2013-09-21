@@ -2692,27 +2692,21 @@ function getDirListAjax($dirName)
 {
     global $cfg, $db;
     include_once("AliasFile.php");
-
     include_once("RunningTorrent.php");
     $runningTorrents = getRunningTorrents();
-
     $arList = array();
     $file_filter = getFileFilter($cfg["file_types_array"]);
+	$res = array();
 
-    if (is_dir($dirName))
-    {
+    if (is_dir($dirName)) {
         $handle = opendir($dirName);
-    }
-    else
-    {
-        // nothing to read
-        if (IsAdmin())
-        {
+    } else {
+        if (IsAdmin()) {
             echo "<b>ERROR:</b> ".$dirName." Path is not valid. Please edit <a href='admin.php?op=configSettings'>settings</a><br>";
-        }
-        else
-        {
+			$res['error'] = 'Path '.$dirName.' is not valid. Please edit /admin.php?op=configSettings';
+        } else {
             echo "<b>ERROR:</b> Contact an admin the Path is not valid.<br>";
+			$res['error'] = 'Path is not valid. Contact an admin.';
         }
         return;
     }
@@ -2721,18 +2715,12 @@ function getDirListAjax($dirName)
     $arUserTorrent = array();
     $arListTorrent = array();
 
-    while($entry = readdir($handle))
-    {
-        if ($entry != "." && $entry != "..")
-        {
-            if (is_dir($dirName."/".$entry))
-            {
+    while($entry = readdir($handle)){
+        if ($entry != "." && $entry != ".."){
+            if (is_dir($dirName."/".$entry)){
                 // don''t do a thing
-            }
-            else
-            {
-                if (ereg($file_filter, $entry))
-                {
+            } else {
+                if (ereg($file_filter, $entry)) {
                     $key = filemtime($dirName."/".$entry).md5($entry);
                     $arList[$key] = $entry;
                 }
@@ -2743,8 +2731,7 @@ function getDirListAjax($dirName)
     // sort the files by date
     krsort($arList);
 
-    foreach($arList as $entry)
-    {
+    foreach($arList as $entry){
         $output = "";
         $displayname = $entry;
         $show_run = true;
@@ -2757,31 +2744,25 @@ function getDirListAjax($dirName)
         $timeStarted = "";
         $torrentfilelink = "";
 
-        if(!file_exists($dirName.$alias))
-        {
+        if(!file_exists($dirName.$alias)){
             $af->running = "2"; // file is new
             $af->size = getDownloadSize($dirName.$entry);
             $af->WriteFile();
         }
 
-        if(strlen($entry) >= 47)
-        {
+        if(strlen($entry) >= 47){
             // needs to be trimmed
             $displayname = substr($entry, 0, 44);
             $displayname .= "...";
         }
 
         // find out if any screens are running and take their PID and make a KILL option
-        foreach ($runningTorrents as $key => $value)
-        {
+        foreach ($runningTorrents as $key => $value){
             $rt = new RunningTorrent($value);
-            if ($rt->statFile == $alias) {
-                if ($kill_id == "")
-                {
+            if ($rt->statFile == $alias){
+                if ($kill_id == ""){
                     $kill_id = $rt->processId;
-                }
-                else
-                {
+                } else {
                     // there is more than one PID for this torrent
                     // Add it so it can be killed as well.
                     $kill_id .= "|".$rt->processId;
@@ -2790,13 +2771,11 @@ function getDirListAjax($dirName)
         }
 
         // Check to see if we have a pid without a process.
-        if (is_file($cfg["torrent_file_path"].$alias.".pid") && empty($kill_id))
-        {
+        if (is_file($cfg["torrent_file_path"].$alias.".pid") && empty($kill_id)){
             // died outside of tf and pid still exists.
             @unlink($cfg["torrent_file_path"].$alias.".pid");
 
-            if(($af->percent_done < 100) && ($af->percent_done >= 0))
-            {
+            if(($af->percent_done < 100) && ($af->percent_done >= 0)){
                 // The file is not running and the percent done needs to be changed
                 $af->percent_done = ($af->percent_done+100)*-1;
             }
@@ -2809,24 +2788,26 @@ function getDirListAjax($dirName)
             $af->WriteFile();
         }
 
-        if ($cfg["enable_torrent_download"])
-        {
+        if ($cfg["enable_torrent_download"]){
             $torrentfilelink = "<a href=\"maketorrent.php?download=".urlencode($entry)."\"><img src=\"images/down.gif\" width=9 height=9 title=\"Download Torrent File\" border=0 align=\"absmiddle\"></a>";
         }
 
         $hd = getStatusImage($af);
 
-        $output .= "<tr><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.$displayname."</td>";
-        $output .= "<td align=\"right\"><font class=\"tiny\">".formatBytesToKBMGGB($af->size)."</font></td>";
-        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
-        $output .= "<td valign=\"bottom\"><div align=\"center\">";
+//        $output .= "<tr><td class=\"tiny\"><img src=\"images/".$hd->image."\" width=16 height=16 title=\"".$hd->title.$entry."\" border=0 align=\"absmiddle\">".$torrentfilelink.$displayname."</td>";
+//        $output .= "<td align=\"right\"><font class=\"tiny\">".formatBytesToKBMGGB($af->size)."</font></td>";
+//        $output .= "<td align=\"center\"><a href=\"message.php?to_user=".$torrentowner."\"><font class=\"tiny\">".$torrentowner."</font></a></td>";
+//        $output .= "<td valign=\"bottom\"><div align=\"center\">";
 
-        if ($af->running == "2")
-        {
+		$res['image'] = $hd->image;
+		$res['title'] = $hd->title.$entry;
+		$res['name'] = $torrentfilelink.$displayname;
+		$res['owner'] = $torrentowner;
+
+        if ($af->running == "2"){
             $output .= "<i><font color=\"#32cd32\">"._NEW."</font></i>";
         }
-        elseif ($af->running == "3" )
-        {
+        elseif ($af->running == "3" ){
             $estTime = "Waiting...";
             $qDateTime = '';
             if(is_file($dirName."queue/".$alias.".Qinfo"))
