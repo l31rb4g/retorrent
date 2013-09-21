@@ -24,7 +24,7 @@
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 include_once(ROOT.'/inc/cfg/config.php');
-die(ROOT;)
+die(ROOT);
 include_once("inc/functions.php");
 
 $messages = "";
