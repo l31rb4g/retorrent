@@ -3000,13 +3000,12 @@ function getDirListAjax($dirName)
         }
         else
         {
-            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
-            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
+//            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
+//            $output .= "<img src=\"images/locked.gif\" width=16 height=16 border=0 title=\""._NOTOWNER."\">";
         }
-        $output .= "</div>";
-
-        $output .= "</td>";
-        $output .= "</tr>\n";
+//        $output .= "</div>";
+//        $output .= "</td>";
+//        $output .= "</tr>\n";
 
         // Is this torrent for the user list or the general list?
         if ($cfg["user"] == getOwner($entry))
@@ -3021,41 +3020,6 @@ function getDirListAjax($dirName)
 		$i++;
     }
     closedir($handle);
-
-    // Now spit out the junk
-	/*
-    echo "<table bgcolor=\"".$cfg["table_data_bg"]."\" width=\"100%\" bordercolor=\"".$cfg["table_border_dk"]."\" border=1 cellpadding=3 cellspacing=0>";
-
-    if (sizeof($arUserTorrent) > 0)
-    {
-        echo "<tr><td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">".$cfg["user"].": "._TORRENTFILE."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">Size</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._USER."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._STATUS."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ESTIMATEDTIME."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ADMIN."</div></td>";
-        echo "</tr>\n";
-        foreach($arUserTorrent as $torrentrow)
-        {
-            echo $torrentrow;
-        }
-    }
-
-    if (sizeof($arListTorrent) > 0)
-    {
-        echo "<tr><td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._TORRENTFILE."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">Size</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._USER."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._STATUS."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ESTIMATEDTIME."</div></td>";
-        echo "<td background=\"themes/".$cfg["theme"]."/images/bar.gif\" bgcolor=\"".$cfg["table_header_bg"]."\"><div align=center class=\"title\">"._ADMIN."</div></td>";
-        echo "</tr>\n";
-        foreach($arListTorrent as $torrentrow)
-        {
-            echo $torrentrow;
-        }
-    }
-	*/
 
 	return $res;
 }

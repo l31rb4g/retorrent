@@ -74,6 +74,7 @@ Refresher = new Class({
 					)
 				),
 				new Element('td', {
+					'valign': 'bottom',
 					'html': l.status
 				}),
 				new Element('td').adopt(
