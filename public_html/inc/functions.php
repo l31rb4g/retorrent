@@ -2538,7 +2538,7 @@ function getDirList($dirName)
             $torrentDetails .= "\n"._USER.": ".$lastUser;
         }
 
-        $output .= "<a href=\"details.php?torrent=".urlencode($entry);
+        $output .= "<a href=\"/details?torrent=".urlencode($entry);
         if($af->running == 1)
         {
             $output .= "&als=false";
@@ -2585,11 +2585,11 @@ function getDirList($dirName)
                                 // Quick Start
                                 if($show_run)
                                 {
-                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
+                                    $output .= "<a href=\"/?torrent=".urlencode($entry)."\"><img src=\"images/run_on.gif\" width=16 height=16 title=\""._RUNTORRENT."\" border=0></a>";
                                 }
                                 else
                                 {
-                                    $output .= "<a href=\"".$_SERVER['PHP_SELF']."?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
+                                    $output .= "<a href=\"/?torrent=".urlencode($entry)."\"><img src=\"images/seed_on.gif\" width=16 height=16 title=\""._SEEDTORRENT."\" border=0></a>";
                                 }
                             }
                         }
@@ -2603,7 +2603,7 @@ function getDirList($dirName)
 
                 if (!is_file($cfg["torrent_file_path"].$alias.".pid"))
                 {
-                    $deletelink = $_SERVER['PHP_SELF']."?alias_file=".$alias."&delfile=".urlencode($entry);
+                    $deletelink = "/?alias_file=".$alias."&delfile=".urlencode($entry);
                     $output .= "<a href=\"".$deletelink."\" onclick=\"return ConfirmDelete('".$entry."')\"><img src=\"images/delete_on.gif\" width=16 height=16 title=\""._DELETE."\" border=0></a>";
                 }
                 else
