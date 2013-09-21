@@ -111,7 +111,6 @@ Refresher = new Class({
 			);
 
 			var tp = tr.getElement('.tpanel')[0];
-
 			if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
@@ -137,6 +136,25 @@ Refresher = new Class({
 					})
 				).inject(tp);
 			}
+			if (l['delete']){
+				new Element('a', {
+					'href': '/?alias_file=' + l.alias + '&delfile=' + l.entry
+				}).adopt(
+					new Element('img', {
+						'src': '/images/delete_on.gif',
+						'width': 16,
+						'height': 16,
+						'border': 0
+					})
+				).inject(tp);
+			} else {
+				new Element('img', {
+					'src': '/images/delete_off.gif',
+					'width': 16,
+					'height': 16,
+					'border': 0
+				}).inject(tp);
+			}
 			tr.inject($$('#torrentTable .btr')[0], 'before');
 		});
 	}
@@ -151,12 +169,7 @@ Refresher = new Class({
 
 
 
-new Element('img', {
-	'src': 'images/delete_' + (l['delete'] ? l['delete'] : 'off') + '.gif',
-	'width': 16,
-	'height': 16,
-	'border': 0
-})
+
 
 
 
