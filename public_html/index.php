@@ -47,7 +47,6 @@ if (file_exists(PAGES.$url.'.php')){
 }
 
 
-
 $messages = '';
 
 // set refresh option into the session cookie

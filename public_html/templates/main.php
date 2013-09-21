@@ -3,8 +3,8 @@
     <title><?php echo $cfg["pagetitle"] ?></title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="themes/<?php echo $cfg["theme"] ?>/style.css" />
-    <meta http-equiv="pragma" content="no-cache" charset="<?php echo _CHARSET ?>" />
+    <link rel="stylesheet" type="text/css" href="themes/<?php echo $cfg["theme"]; ?>/style.css" />
+    <meta http-equiv="pragma" content="no-cache" charset="<?php echo _CHARSET; ?>" />
 	<script type="text/javascript" src="/js/mootools-core-1.4.5-full-nocompat-yc.js"></script>
 	<script type="text/javascript" src="/js/main.js"></script>
 	<script language="javascript">
