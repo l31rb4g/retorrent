@@ -1,4 +1,4 @@
 torrentfluz
 ===========
 
-Torrentflux fork
+Torrentflux evolution
