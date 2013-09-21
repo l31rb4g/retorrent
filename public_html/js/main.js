@@ -109,7 +109,7 @@ Refresher = new Class({
 							'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
 						}).adopt(
 							new Element('img', {
-								'src': 'images/kill.gif',
+								'src': 'images/' + l.seed ? 'seed_on' : 'kill' + '.gif',
 								'width': 16,
 								'height': 16,
 								'title': 'Stop Torrent',
@@ -117,7 +117,7 @@ Refresher = new Class({
 							})
 						),
 						new Element('img', {
-							'src': 'images/delete_off.gif',
+							'src': 'images/delete_' + l['delete'] + '.gif',
 							'width': 16,
 							'height': 16,
 							'border': 0
