@@ -111,18 +111,28 @@ Refresher = new Class({
 			);
 
 			var tp = tr.getElement('.tpanel');
-			if (l['new']){
-				new Element('a', {
-					'href': '/?torrent=' + l.entry
-				}).adopt(
+			if (l.run){
+				if (l.run == 'on'){
+					new Element('a', {
+						'href': '/?torrent=' + l.entry
+					}).adopt(
+						new Element('img', {
+							'src': '/images/run_on.gif',
+							'width': 16,
+							'height': 16,
+							'title': 'Start torrent',
+							'border': 0
+						})
+					).inject(tp);
+				} else {
 					new Element('img', {
-						'src': '/images/run_' + l.run ? l.run : 'on' + '.gif',
+						'src': '/images/run_off.gif',
 						'width': 16,
 						'height': 16,
 						'title': 'Start torrent',
 						'border': 0
-					})
-				).inject(tp);
+					}).inject(tp);
+				}
 			} else if (l.seed){
 				new Element('a', {
 					'href': '/?torrent=' + l.entry
