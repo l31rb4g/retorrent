@@ -2807,6 +2807,7 @@ function getDirListAjax($dirName)
 		$res[$i]['image'] = $hd->image;
 		$res[$i]['title'] = $hd->title;
 		$res[$i]['name'] = $torrentfilelink.' '.$displayname;
+		$res[$i]['displayname'] = $displayname;
 		$res[$i]['owner'] = $torrentowner;
 		$res[$i]['size'] = formatBytesToKBMGGB($af->size);
 
