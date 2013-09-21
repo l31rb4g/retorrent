@@ -1,4 +1,5 @@
 window.addEvent('domready', function(){
+	console.log('domready');
 	window.refresher = new Refresher();
 });
 
@@ -6,7 +7,7 @@ Refresher = new Class({
 	data: {'ajax': 1},
 	initialize: function(){
 		this.request = new Request.JSON({
-			'url': '//',
+			'url': '/',
 			'method': 'POST',
 			'data': this.data,
 			'onError': function(){
