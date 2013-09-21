@@ -21,7 +21,7 @@ Refresher = new Class({
 		}.bind(this), 2000);
 	},
 	rebuildTable: function(r){
-		var last = ($$('#torrentTable tbody > tr').length - 1);
+		var last = ($$('#torrentTable tbody > tr').length - 2);
 		$$('#torrentTable tbody > tr').filter(function(f,n){
 			return (n > 0 && n < last);
 		}).dispose();
