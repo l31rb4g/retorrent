@@ -29,7 +29,6 @@ define('PAGES', ROOT.'/pages');
 
 include_once(INC.'/db.php');
 include_once(CFG.'/config.php');
-include_once(INC.'/functions.php');
 
 $url = '/'.str_replace('/', '', $_SERVER['REQUEST_URI']);
 $qs = '';
@@ -39,6 +38,9 @@ if (preg_match('/\?/', $url)){
 	$qs = $m[2];
 }
 if (file_exists(PAGES.$url.'.php')){
+	if ($url != '/login'){
+		include_once(INC.'/functions.php');
+	}
 	require_once(PAGES.$url.'.php');
 	die;
 }
