@@ -27,7 +27,7 @@ define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 include_once(ROOT.'/inc/cfg/config.php');
 include_once(ROOT.'/inc/functions.php');
 
-$messages = "";
+$messages = '';
 
 // set refresh option into the session cookie
 if(array_key_exists("pagerefresh", $_GET))

@@ -22,9 +22,9 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-include_once("config.php");
-include_once("functions.php");
-require_once("metaInfo.php");
+include_once(ROOT.'/inc/config.php');
+include_once(ROOT.'/functions.php');
+require_once(ROOT.'/inc/metaInfo.php');
 
 $torrent = SecurityClean(getRequestVar('torrent'));
 $displayName = $torrent;
