@@ -55,9 +55,8 @@ $cfg["db_pass"] = "eanni4";            // password for database
 
 $cfg["pagetitle"] = "Retorrent 1.0";
 
-// TorrentFluz Version
+// Retorrent Version
 $cfg["version"] = "1.0a1";
-
 // TorrentFlux Version
 $cfg["version"] = "2.4";
 
