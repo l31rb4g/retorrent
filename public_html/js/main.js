@@ -172,18 +172,18 @@ Refresher = new Class({
 			} else {
 				new Element('a', {
 					'href': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry,
-						'events': {
-							'click': function(ev){
-								ev.stop();
-								new Request({
-									'url': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
-								}).send();
-								this.setStyles({
-									'opacity': 0.5,
-									'cursor': 'default'
-								});
-							}
+					'events': {
+						'click': function(ev){
+							ev.stop();
+							new Request({
+								'url': '/?alias_file=' + l.alias + '&kill=' + l.kill_id + '&kill_torrent=' + l.entry
+							}).send();
+							this.setStyles({
+								'opacity': 0.5,
+								'cursor': 'default'
+							});
 						}
+					}
 				}).adopt(
 					new Element('img', {
 						'src': '/images/kill.gif',
