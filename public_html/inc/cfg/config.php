@@ -53,10 +53,10 @@ $cfg["db_pass"] = "eanni4";            // password for database
 // ***************************************************************************
 
 
-$cfg["pagetitle"] = "TorrentFluz 0.1";
+$cfg["pagetitle"] = "Retorrent 1.0";
 
 // TorrentFluz Version
-$cfg["version"] = "0.1";
+$cfg["version"] = "1.0a1";
 
 // TorrentFlux Version
 $cfg["version"] = "2.4";
