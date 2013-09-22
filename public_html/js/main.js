@@ -115,18 +115,18 @@ Refresher = new Class({
 				if (l.run == 'on'){
 					new Element('a', {
 						'href': '/?torrent=' + l.entry,
-							'events': {
-								'click': function(ev){
-									ev.stop();
-									new Request({
-										'url': '/?torrent=' + l.entry
-									}).send();
-									this.setStyles({
-										'opacity': 0.5,
-										'cursor': 'default'
-									});
-								}
+						'events': {
+							'click': function(ev){
+								ev.stop();
+								new Request({
+									'url': '/?torrent=' + l.entry
+								}).send();
+								this.setStyles({
+									'opacity': 0.5,
+									'cursor': 'default'
+								});
 							}
+						}
 					}).adopt(
 						new Element('img', {
 							'src': '/images/run_on.gif',
@@ -147,7 +147,19 @@ Refresher = new Class({
 				}
 			} else if (l.seed){
 				new Element('a', {
-					'href': '/?torrent=' + l.entry
+					'href': '/?torrent=' + l.entry,
+					'events': {
+						'click': function(ev){
+							ev.stop();
+							new Request({
+								'url': '/?torrent=' + l.entry
+							}).send();
+							this.setStyles({
+								'opacity': 0.5,
+								'cursor': 'default'
+							});
+						}
+					}
 				}).adopt(
 					new Element('img', {
 						'src': '/images/seed_' + l.seed + '.gif',
