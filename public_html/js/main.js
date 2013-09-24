@@ -13,13 +13,17 @@ Refresher = new Class({
 				console.log('error');
 			},
 			'onSuccess': function(r){
+                var ping = (new Date().getTime() - this.requestTime);
+                $('lbl_server_ping').set('text', ping);
 				this.rebuildTable(r);
 				setTimeout(function(){
+                    this.requestTime = new Date().getTime();
 					this.request.send();
 				}.bind(this), 2000);
 			}.bind(this)
 		});
 		setTimeout(function(){
+            this.requestTime = new Date().getTime();
 			this.request.send();
 		}.bind(this), 2000);
 	},

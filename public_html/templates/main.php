@@ -250,6 +250,10 @@
 																	?>
 																</strong></td>
 															</tr>
+                                                            <tr>
+                                                                <td class="tiny" align="right"><?php echo _SERVERLOAD ?>:</td>
+                                                                <td class="tiny"><strong id="lbl_server_ping">0</strong></td>
+                                                            </tr>
 														</table>
 													</td>
 												</tr>
