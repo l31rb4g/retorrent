@@ -251,7 +251,7 @@
 																</strong></td>
 															</tr>
                                                             <tr>
-                                                                <td class="tiny" align="right">Server Ping:</td>
+                                                                <td class="tiny" align="right">Ping:</td>
                                                                 <td class="tiny"><strong id="lbl_server_ping">0</strong></td>
                                                             </tr>
 														</table>
