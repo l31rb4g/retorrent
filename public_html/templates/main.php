@@ -237,7 +237,7 @@
 																<td class="tiny"><strong id="lbl_free_space"><?php echo formatFreeSpace($cfg["free_space"]) ?></strong></td>
 															</tr>
 															<tr>
-																<td class="tiny" align="right"><?php echo _SERVERLOAD ?>:</td>
+																<td class="tiny" align="right">Server Ping:</td>
 																<td class="tiny"><strong id="lbl_server_load">
 																	<?php
 																	if ($cfg["show_server_load"] && @isFile($cfg["loadavg_path"])) {
@@ -251,7 +251,7 @@
 																</strong></td>
 															</tr>
                                                             <tr>
-                                                                <td class="tiny" align="right"><?php echo _SERVERLOAD ?>:</td>
+                                                                <td class="tiny" align="right"><?php echo _SERVERPING ?>:</td>
                                                                 <td class="tiny"><strong id="lbl_server_ping">0</strong></td>
                                                             </tr>
 														</table>
