@@ -10,7 +10,7 @@ Refresher = new Class({
 			'method': 'POST',
 			'data': this.data,
 			'onError': function(){
-				console.log('error');
+				window.location = '/';
 			},
 			'onSuccess': function(r){
                 var ping = (new Date().getTime() - this.requestTime);
